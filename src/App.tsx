@@ -11,7 +11,7 @@ const getMovie = () => {
 
   axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=431d8e14474b80402b2e05a0e1ae22f4&language=en-US&sort_by=vote_count.desc&include_adult=false&include_video=false&page=1&primary_release_year=${year}&with_watch_monetization_types=flatrate`)
   .then((Response) => {
-    console.log(Response.data.results[4].title, year);
+    console.log(Response.data.results[4].original_title, year);
   })
 
 }
