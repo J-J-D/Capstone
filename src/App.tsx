@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
-import axios from "axios";
-import {useState} from 'react';
+import MovieDisplay from './components/MovieDisplay';
 
 
 function App() {
@@ -10,18 +9,12 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>
-          hello, world
+          You should watch: 
         </p>
-        <a
-          className="Trello-link"
-          href="https://trello.com/b/OZob7lcI/matinyarn ee-all-day"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          MAD Trello Site
-        </a>
-      </header>
-      <button onClick={getMovie}>Random</button>
+          </header>
+        <section className ="Body">
+          <MovieDisplay/>
+        </section>
     </div>
     
   );
