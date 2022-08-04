@@ -29,9 +29,6 @@ function App() {
         <header className="App-header">
           <UserLoginForm handleSubmission={loginUser}/>
           <p>
-            Currently logged in as 
-          </p>
-          <p>
             You should watch: 
           </p>
             </header>
