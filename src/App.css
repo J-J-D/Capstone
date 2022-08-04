@@ -18,7 +18,7 @@
 
 .App-header {
   background-color: #e397d9;
-  min-height: 50vh;
+  min-height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,8 +27,11 @@
   color: black;
 }
 
-.Trello-link {
-  color: #61dafb;
+.Body {
+  margin: auto;
+  width: 60%;
+  border: 5px;
+  padding: 10px;
 }
 
 
