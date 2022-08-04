@@ -15,8 +15,8 @@ const MovieDisplay = () => {
         axios
         .get<Movie>('https://matinee-all-day.herokuapp.com/sessions/2')
         .then((response: AxiosResponse) => {
-            console.log(response.data)
             setMovieDetails(response.data)
+            console.log(movieDetails?.poster)
         })
         .catch((error => {
             console.log(`an error occured. details: ${error}`)
@@ -47,6 +47,10 @@ const MovieDisplay = () => {
                 <h1 className="movie-title">
                     {movieDetails?.title}
                 </h1>
+                <img
+                src={`https://image.tmdb.org/t/p/w185${movieDetails.poster}`}
+                alt={`Movie poster for ${movieDetails.title} retrieved from The Movie Database`}
+                ></img>
                 <p>
                     {movieDetails?.release_date.slice(0, 4)}
                 </p>
@@ -73,6 +77,10 @@ const MovieDisplay = () => {
                 <p>
                     {movieDetails?.release_date.slice(0, 4)}
                 </p>
+                <img
+                src={`https://image.tmdb.org/t/p/w185${movieDetails.poster}`}
+                alt={`Movie poster for ${movieDetails.title} retrieved from The Movie Database`}
+                ></img>
                 <p>
                     {movieDetails.overview}
                 </p>
