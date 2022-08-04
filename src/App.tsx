@@ -1,32 +1,36 @@
 import React from 'react';
 import './App.css';
 import MovieDisplay from './components/MovieDisplay';
-import UserLogin from "./components/UserLogin";
+import UserLoginForm from "./components/UserLogin";
 import { useState } from 'react';
 import axios from 'axios';
 
 
 
 function App() {
-  // const [login, setLogin] = useState(null);
+  const [login, setLogin] = useState(null);
 
-  // const loginUser =  (username) => {
-  //   axios
-  //     .post('https://matinee-all-day.herokuapp.com/users/login', username)
-  //     .then((response) => {
-  //       setLogin(response.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     })
-  //     }
+  const loginUser =  (username: string) => {
+    axios
+      .post('https://matinee-all-day.herokuapp.com/users/login', {"username": username} )
+      .then((response) => {
+        setLogin(response.data);
+        console.log(login)
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      }
   
 
   
     return (
       <div className="App">
         <header className="App-header">
-          {/* <UserLogin handleSubmission={loginUser}/> */}
+          <UserLoginForm handleSubmission={loginUser}/>
+          <p>
+            Currently logged in as 
+          </p>
           <p>
             You should watch: 
           </p>
@@ -40,3 +44,4 @@ function App() {
 }
 
 export default App;
+

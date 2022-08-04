@@ -1,36 +1,44 @@
-// import axios from "axios";
-// import React, { useState } from "react";
-// import "./UserLogin.css";
-// import PropTypes from "prop-types";
-// import userEvent from "@testing-library/user-event";
+import axios from "axios";
+import React, { useState } from "react";
+import "./UserLogin.css";
+import PropTypes from "prop-types";
+
+
+interface Login{
+    handleSubmission: (username: string) => void
+
+}
+
+const UserLoginForm = (Props: Login) => {
+    const [loginData, setLoginData] = useState("");
+
+    const changeName: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+        setLoginData(e.currentTarget.value)
+    }
+
+    const loginUser = (e: React.SyntheticEvent) => {
+        e.preventDefault();
+        Props.handleSubmission(loginData);
+        setLoginData(loginData + " is logged in" )
+    }
 
 
 
-const userLogin = () => {
-//     const [loginData, setLoginData] = useState("");
 
-//     const loginUser = (event: Event) => {
-//         event.preventDefault();
-//         handleSubmission(loginData);
-//         setLoginData("")
-//     }
+    return (
+        <form onSubmit={loginUser}>
+            <p>Please enter your username:</p>
+            <input
+            type="text"
+            name = "Username"
+            value = {loginData}
+            onChange = {changeName}
 
-
-
-
-//     return (
-//         <form onSubmit={loginUser}>
-//             <p>Please enter your username:</p>
-//             <input
-//             type="text"
-//             name = "Username"
-//             value = {loginData}
-//             onChange = setLoginData()
-//             />
+            />
         
 
-//         </form>
-//     )
+        </form>
+    )
     };
 
-export default userLogin;
+export default UserLoginForm;
