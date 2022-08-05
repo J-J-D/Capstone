@@ -11,6 +11,7 @@ interface Login{
 
 const UserLoginForm = (Props: Login) => {
     const [loginData, setLoginData] = useState("");
+    const [loggedInMessage, setLoggedInMessage] = useState("")
 
     const changeName: React.ChangeEventHandler<HTMLInputElement> = (e) => {
         setLoginData(e.currentTarget.value)
@@ -19,25 +20,26 @@ const UserLoginForm = (Props: Login) => {
     const loginUser = (e: React.SyntheticEvent) => {
         e.preventDefault();
         Props.handleSubmission(loginData);
-        setLoginData(loginData + " is logged in" )
+        setLoggedInMessage(loginData + " is logged in" )
     }
-
-
-
+    
 
     return (
-        <form onSubmit={loginUser}>
-            <p>Please enter your username:</p>
-            <input
-            type="text"
-            name = "Username"
-            value = {loginData}
-            onChange = {changeName}
-
-            />
-        
-
-        </form>
+        <section className="login">
+            <form className="loginForm"
+            onSubmit={loginUser}>
+                <p>Please enter your username:</p>
+                <input
+                type="text"
+                name = "Username"
+                value = {loginData}
+                onChange = {changeName}
+                ></input>
+            </form>
+            <p>
+                {loggedInMessage}
+            </p>
+        </section>
     )
     };
 

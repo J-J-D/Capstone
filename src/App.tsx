@@ -30,12 +30,8 @@ function App() {
       <div className="App">
         <header className="App-header">
           <UserLoginForm handleSubmission={loginUser}/>
-          <p>
-            You should watch: 
-          </p>
             </header>
           <section className ="Body">
-            <MovieDisplay/>
             <InputForm/>
           </section>
 
