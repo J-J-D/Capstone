@@ -2,8 +2,10 @@ import React from 'react';
 import './App.css';
 import MovieDisplay from './components/MovieDisplay';
 import UserLoginForm from "./components/UserLogin";
+import InputForm from "./components/InputForm";
 import { useState } from 'react';
 import axios from 'axios';
+
 
 
 
@@ -34,7 +36,9 @@ function App() {
             </header>
           <section className ="Body">
             <MovieDisplay/>
+            <InputForm/>
           </section>
+
       </div>
       
   );
