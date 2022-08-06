@@ -3,6 +3,8 @@ import Genres from "./Genres";
 import Eras from "./Eras";
 import Runtime from "./Runtime";
 import { UserPrefs } from "../types/interfaces";
+import axios from "axios";
+import { createModuleResolutionCache } from "typescript";
 
 const InputForm = () => {
 
@@ -12,6 +14,7 @@ const InputForm = () => {
         "genre" : "",
         "era" : "",
         "runtime":"",
+        "user_id":"2"
 })
 
     const InputTitles = ["Genres", "Era", "Runtime"]
@@ -26,6 +29,14 @@ const InputForm = () => {
         }
 
     }
+    const postSession = (userPrefs: UserPrefs) => {
+        axios
+        .post('https://matinee-all-day.herokuapp.com/sessions', userPrefs)
+        .then((response) => {console.log(response)
+        console.log('It worked')
+    })
+        .catch((err) => {console.log(err)})
+};
 
     return (
         <div className="InputForm">
@@ -38,7 +49,8 @@ const InputForm = () => {
                 <button disabled = {page === 0} onClick={() => {
                     setPage((curPage) => curPage - 1)
                 }}>Prev</button>
-                <button onClick={() => { if (page === InputTitles.length -1) {console.log("TIME TO POST THE SESSION PREFS CURRENLTY IN USERPREFS STATE")}else {
+                <button onClick={() => { if (page === InputTitles.length -1) {console.log('Posting session')
+                postSession(userPrefs)}else {
                     setPage((curPage) => curPage + 1)
             }}}>{page === InputTitles.length -1 ? "Submit" : "Next"}</button>
             </div>

@@ -8,14 +8,16 @@ interface GenresProps {userPrefs: UserPrefs, setUserPrefs: React.Dispatch<React.
 const Genres = (props: GenresProps) => {
     const {userPrefs, setUserPrefs} = props
 
-    const handleClick = () => setUserPrefs({...userPrefs, genre: "Action"})
+    const handleClick = (e: React.SyntheticEvent) => {
+        setUserPrefs({...userPrefs, genre: e.currentTarget.innerHTML});
+    };
 
     return (
         <div className = "GenreButtons">
             <h3>Genres Selected {userPrefs.genre}</h3>
             
             <ul>
-                <button onClick = {handleClick}>Action</button>
+                <button id = "genre-action" onClick = {handleClick}>Action</button>
             </ul>
 
 

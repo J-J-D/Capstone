@@ -10,7 +10,10 @@ import axios from 'axios';
 
 
 function App() {
-  const [login, setLogin] = useState(null);
+  const [login, setLogin] = useState({id: 0, message: 
+  "You are now logged in.", username: ""});
+
+
 
   const loginUser =  (username: string) => {
     axios
@@ -34,7 +37,6 @@ function App() {
           <section className ="Body">
             <InputForm/>
           </section>
-
       </div>
       
   );
