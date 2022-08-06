@@ -5,3 +5,9 @@ export interface Movie {
     release_date: string,
     title: string
 }
+
+export interface UserPrefs {
+    genre: string,
+    era: string,
+    runtime: string
+}
