@@ -10,6 +10,7 @@ import axios from 'axios';
 
 
 function App() {
+// login tracks the current user and their id. If no one logged in, the user id is set to Default User (48)
   const [login, setLogin] = useState({id: 48, message: 
   "You are now logged in.", username: ""});
 

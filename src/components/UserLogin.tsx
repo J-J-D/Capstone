@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
 import "./UserLogin.css";
-import PropTypes from "prop-types";
 
 
 interface Login{
