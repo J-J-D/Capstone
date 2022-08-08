@@ -16,7 +16,6 @@ const InputForm = (props: InputFormProps) => {
         "genre" : "",
         "era" : "",
         "runtime":"",
-        // "user_id":props.userId
 })
 
     const InputTitles = ["Genres", "Era", "Runtime"]
