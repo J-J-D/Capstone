@@ -30,12 +30,29 @@ const InputForm = (props: InputFormProps) => {
         }
 
     }
+
+    const getSession = (session_id: number) => {
+        axios
+        .get(`https://matinee-all-day.herokuapp.com/sessions/${session_id}`)
+        .then((response) => {console.log(response.data)})
+        .catch((err) => {console.log(err)}) 
+    }
+
+    const putSession = (session_id: number) => {
+        axios
+        .put(`https://matinee-all-day.herokuapp.com/sessions/${session_id}`)
+        .then((reponse) => {console.log(reponse)
+        getSession(session_id)})
+        .catch((err) => {console.log(err)}) 
+    }
+
     const postSession = (userPrefs: UserPrefs) => {
         const postPrefs = {...userPrefs, user_id:props.userId}
         axios
         .post('https://matinee-all-day.herokuapp.com/sessions', postPrefs)
         .then((response) => {console.log(response)
-        console.log('It worked')
+        const session_id = response.data.session_id
+        putSession(session_id)
     })
         .catch((err) => {console.log(err)})
 };

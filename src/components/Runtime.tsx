@@ -7,7 +7,6 @@ interface RuntimeProps {userPrefs: UserPrefs, setUserPrefs: React.Dispatch<React
 const Runtime = (props: RuntimeProps) => {
     const {userPrefs, setUserPrefs} = props
     const handleClick = (e: React.SyntheticEvent) => {
-        console.log(e)
         //@ts-ignore comment
         setUserPrefs({...userPrefs, runtime: e.target.value})
         }

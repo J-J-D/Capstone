@@ -24,8 +24,7 @@ const Genres = (props: GenresProps) => {
 
     return (
         <div className = "GenreButtons">
-            <h3>Genres Selected {userPrefs.genre}</h3>
-            
+            <h3>Choose any genre or subgenres.  Click Next to skip</h3>
             <ul>
                 {TMDB_GENRES.map(genre => {
                     return (
@@ -35,6 +34,7 @@ const Genres = (props: GenresProps) => {
                 
             </ul>
 
+            <h4>Genres Selected {userPrefs.genre}</h4>
 
 
         </div>
