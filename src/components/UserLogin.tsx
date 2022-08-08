@@ -6,14 +6,16 @@ import PropTypes from "prop-types";
 
 interface Login{
     handleSubmission: (username: string) => void
+    userId: number
 
 }
 
 
 
-const UserLoginForm = (Props: Login) => {
+const UserLoginForm = (props: Login) => {
     const [username, setUsername] = useState("");
     const [loggedInMessage, setLoggedInMessage] = useState("")
+
 
     const changeName: React.ChangeEventHandler<HTMLInputElement> = (e) => {
         setUsername(e.currentTarget.value)
@@ -21,7 +23,7 @@ const UserLoginForm = (Props: Login) => {
 
     const loginUser = (e: React.SyntheticEvent) => {
         e.preventDefault();
-        Props.handleSubmission(username);
+        props.handleSubmission(username);
         setLoggedInMessage(username + " is logged in" )
     }
     

@@ -32,10 +32,10 @@ function App() {
     return (
       <div className="App">
         <header className="App-header">
-          <UserLoginForm handleSubmission={loginUser}/>
+          <UserLoginForm handleSubmission={loginUser} userId ={login.id}/>
             </header>
           <section className ="Body">
-            <InputForm/>
+            <InputForm userId={login.id}/>
           </section>
       </div>
       

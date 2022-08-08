@@ -10,5 +10,4 @@ export interface UserPrefs {
     genre: string,
     era: string,
     runtime: string,
-    user_id: string
 }

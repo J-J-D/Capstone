@@ -6,7 +6,9 @@ import { UserPrefs } from "../types/interfaces";
 import axios from "axios";
 import { createModuleResolutionCache } from "typescript";
 
-const InputForm = () => {
+interface InputFormProps {userId: number};
+
+const InputForm = (props: InputFormProps) => {
 
     const [page, setPage] = useState(0)
 
@@ -14,7 +16,7 @@ const InputForm = () => {
         "genre" : "",
         "era" : "",
         "runtime":"",
-        "user_id":"2"
+        // "user_id":props.userId
 })
 
     const InputTitles = ["Genres", "Era", "Runtime"]
@@ -30,8 +32,9 @@ const InputForm = () => {
 
     }
     const postSession = (userPrefs: UserPrefs) => {
+        const postPrefs = {...userPrefs, user_id:props.userId}
         axios
-        .post('https://matinee-all-day.herokuapp.com/sessions', userPrefs)
+        .post('https://matinee-all-day.herokuapp.com/sessions', postPrefs)
         .then((response) => {console.log(response)
         console.log('It worked')
     })
