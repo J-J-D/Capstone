@@ -63,7 +63,7 @@ const [sessionId, setSessionId] = useState(0)
             </div>
           </div>
         </nav>
-        <section className="h80">
+        <section>
           {displayToggle()}
         </section>
         <nav className="footer navbar fixed-bottom">
