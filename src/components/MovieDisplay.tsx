@@ -56,13 +56,14 @@ const MovieDisplay = (props: MovieDisplayProps) => {
                 <h1 className="movie-details">
                     {movieDetails?.title}
                 </h1>
-                <p className="movie-details">
+                <p>
                     {movieDetails?.release_date.slice(0, 4)}
                 </p>
                 <img
                 src={`https://image.tmdb.org/t/p/w185${movieDetails.poster}`}
                 alt={`Movie poster for ${movieDetails.title} retrieved from The Movie Database`}
                 ></img>
+                <br></br>
                 <button
                 onClick={toggleOverviewVisibility}
                 >
@@ -106,6 +107,9 @@ const MovieDisplay = (props: MovieDisplayProps) => {
                 onClick={getMovieData}
                 >
                     show me a different movie!
+                </button>
+                <button onClick = {backToInput}>
+                    Start Your Search Over
                 </button>
             </div>
         );
