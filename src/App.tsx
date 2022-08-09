@@ -31,13 +31,21 @@ function App() {
 
   
     return (
-      <div className="App">
-        <header className="App-header">
-          <UserLoginForm handleSubmission={loginUser} userId ={login.id}/>
-            </header>
-          <section className ="Body">
-            <InputForm userId={login.id}/>
-          </section>
+      <div className="container" id="page-container">
+        <div className="container" id="login-container">
+          <div className="row">
+            <div className="col">
+              <UserLoginForm handleSubmission={loginUser} userId ={login.id}/>
+            </div>
+          </div>
+        </div>
+        <section className="container" id="display-container">
+          <div className="row">
+            <div className="col">
+              <InputForm userId={login.id}/>
+            </div>
+          </div>
+        </section>
       </div>
       
   );
