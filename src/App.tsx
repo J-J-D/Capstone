@@ -28,7 +28,7 @@ const [sessionId, setSessionId] = useState(0)
     if (movieRec.id === 0) {
       return <InputForm userId={login.id} setMovieRec = {setMovieRec} setSessionId={setSessionId}/>
     } else{ 
-      return <MovieDisplay sessionId = {sessionId} movieRec = {movieRec}/>
+      return <MovieDisplay sessionId = {sessionId} movieRec = {movieRec} setMovieRec = {setMovieRec}/>
     } 
   };
 
