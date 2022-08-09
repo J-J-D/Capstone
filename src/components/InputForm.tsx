@@ -76,12 +76,12 @@ const InputForm = (props: InputFormProps) => {
 };
 
     return (
-        <div className="InputForm">
+        <div className="InputForm align-items-center">
             User Preferences
-            <div className="InputTitle">
-                <h1>{InputTitles[page]}</h1>
+            <div className="InputTitle InputForm">
+                <h1 className="InputTitle InputForm">{InputTitles[page]}</h1>
             </div>
-            <div className="Preferences">{pageDisplay()}</div>
+            <div className="Preferences InputForm">{pageDisplay()}</div>
             <div className="FormNav">
                 <button disabled = {page === 0} onClick={() => {
                     setPage((curPage) => curPage - 1)
