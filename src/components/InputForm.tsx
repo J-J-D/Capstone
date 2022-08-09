@@ -5,6 +5,7 @@ import Runtime from "./Runtime";
 import { UserPrefs } from "../types/interfaces";
 import axios from "axios";
 import { createModuleResolutionCache } from "typescript";
+import MovieDisplay from "./MovieDisplay";
 
 interface InputFormProps {userId: number};
 
@@ -27,6 +28,8 @@ const InputForm = (props: InputFormProps) => {
             return <Eras userPrefs={userPrefs} setUserPrefs={setUserPrefs}/>
         }else if(page === 2){
             return <Runtime userPrefs={userPrefs} setUserPrefs={setUserPrefs}/>
+        }else if(page === 3){
+            return <MovieDisplay/>
         }
 
     }
@@ -68,9 +71,13 @@ const InputForm = (props: InputFormProps) => {
                 <button disabled = {page === 0} onClick={() => {
                     setPage((curPage) => curPage - 1)
                 }}>Prev</button>
-                <button onClick={() => { if (page === InputTitles.length -1) {console.log('Posting session')
-                postSession(userPrefs)}else {
-                    setPage((curPage) => curPage + 1)
+                <button onClick={() => { 
+                    if (page === InputTitles.length -1) 
+                        {console.log('Posting session');
+                        postSession(userPrefs);
+                        setPage((curPage) => curPage + 1);
+                    } else {
+                        setPage((curPage) => curPage + 1)
             }}}>{page === InputTitles.length -1 ? "Submit" : "Next"}</button>
             </div>
         </div>
