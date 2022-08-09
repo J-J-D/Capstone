@@ -6,20 +6,31 @@ import { UserPrefs } from "../types/interfaces";
 import axios from "axios";
 import { createModuleResolutionCache } from "typescript";
 import MovieDisplay from "./MovieDisplay";
+import { Movie } from "../types/interfaces";
 
 interface InputFormProps {userId: number};
 
 const InputForm = (props: InputFormProps) => {
 
-    const [page, setPage] = useState(0)
+    const [page, setPage] = useState(0);
 
     const [userPrefs, setUserPrefs] = useState({
         "genre" : "",
         "era" : "",
         "runtime":"",
-})
+    });
 
-    const InputTitles = ["Genres", "Era", "Runtime"]
+    const InputTitles = ["Genres", "Era", "Runtime"];
+
+    const [movieRec, setMovieRec] = useState<Movie>({
+        "id": 0,
+        "overview": "",
+        "poster": "",
+        "release_date": "",
+        "title": ""
+    });
+
+    const [sessionId, setSessionId] = useState(0);
 
     const pageDisplay = () => {
         if (page === 0){
@@ -29,23 +40,27 @@ const InputForm = (props: InputFormProps) => {
         }else if(page === 2){
             return <Runtime userPrefs={userPrefs} setUserPrefs={setUserPrefs}/>
         }else if(page === 3){
-            return <MovieDisplay/>
+            return <MovieDisplay sessionId={sessionId} movieRec={movieRec}/>
         }
 
     }
 
-    const getSession = (session_id: number) => {
+    const getSession = () => {
         axios
-        .get(`https://matinee-all-day.herokuapp.com/sessions/${session_id}`)
-        .then((response) => {console.log(response.data)})
+        .get(`https://matinee-all-day.herokuapp.com/sessions/${sessionId}`)
+        .then((response) => {
+            console.log(response.data);
+            setMovieRec(response.data);
+            setPage(3);
+        })
         .catch((err) => {console.log(err)}) 
     }
 
-    const putSession = (session_id: number) => {
+    const putSession = () => {
         axios
-        .put(`https://matinee-all-day.herokuapp.com/sessions/${session_id}`)
+        .put(`https://matinee-all-day.herokuapp.com/sessions/${sessionId}`)
         .then((reponse) => {console.log(reponse)
-        getSession(session_id)})
+        getSession()})
         .catch((err) => {console.log(err)}) 
     }
 
@@ -53,9 +68,9 @@ const InputForm = (props: InputFormProps) => {
         const postPrefs = {...userPrefs, user_id:props.userId}
         axios
         .post('https://matinee-all-day.herokuapp.com/sessions', postPrefs)
-        .then((response) => {console.log(response)
-        const session_id = response.data.session_id
-        putSession(session_id)
+        .then((response) => {console.log(response);
+        setSessionId(response.data.session_id);
+        putSession();
     })
         .catch((err) => {console.log(err)})
 };
@@ -75,7 +90,6 @@ const InputForm = (props: InputFormProps) => {
                     if (page === InputTitles.length -1) 
                         {console.log('Posting session');
                         postSession(userPrefs);
-                        setPage((curPage) => curPage + 1);
                     } else {
                         setPage((curPage) => curPage + 1)
             }}}>{page === InputTitles.length -1 ? "Submit" : "Next"}</button>
@@ -84,7 +98,5 @@ const InputForm = (props: InputFormProps) => {
     )
 
 }
-
-
 
 export default InputForm

@@ -3,20 +3,23 @@ import React from "react";
 import { Movie } from "../types/interfaces";
 import { useState, useEffect} from "react";
 
-// TODO: return poster; create button for user to add movie to seen list
-// Should this be broken into smaller components? 
+interface MovieDisplayProps {
+    sessionId: number,
+    movieRec: Movie
+};
 
-const MovieDisplay = () => {
-    const [movieDetails, setMovieDetails] = useState<Movie>();
+const MovieDisplay = (props: MovieDisplayProps) => {
+    const [movieDetails, setMovieDetails] = useState<Movie>(props.movieRec);
     const [overviewVisibility, setOverviewVisibility] = useState(false);
+    console.log(`Movie details: ${movieDetails.title}, ${movieDetails.poster}`)
+    console.log(`SessionId: ${props.sessionId}`)
 
     // Make call to MAD backend for a random movie recommendation
     const getMovieData = () => {
         axios
-        .get<Movie>('https://matinee-all-day.herokuapp.com/sessions/2')
+        .get<Movie>(`https://matinee-all-day.herokuapp.com/sessions/${props.sessionId}`)
         .then((response: AxiosResponse) => {
             setMovieDetails(response.data)
-            console.log(movieDetails?.poster)
         })
         .catch((error => {
             console.log(`an error occured. details: ${error}`)
@@ -29,18 +32,7 @@ const MovieDisplay = () => {
     };
 
 
-    if (movieDetails === undefined) { 
-        // No movie rec has been received yet
-        return (
-            <div className="movie-display">
-                <button
-                onClick={getMovieData}
-                >
-                    show me a movie!
-                </button>
-            </div>
-        );
-    } else if (movieDetails !== undefined && overviewVisibility === false) {
+    if (movieDetails !== undefined && overviewVisibility === false) {
         // Movie rec has been received and the plot description is hidden
         return (
             <div className="movie-display">
@@ -67,7 +59,7 @@ const MovieDisplay = () => {
                 </button>
             </div>
         );
-    } else {
+    } else if (movieDetails !== undefined && overviewVisibility === true) {
         // Movie rec has been received and the plot description is visible
         return (
             <div className="movie-display">
@@ -97,7 +89,17 @@ const MovieDisplay = () => {
                 </button>
             </div>
         );
+    } else {
+        // If movie details are not defined
+        return (
+            <>
+                <div className="Error-Message">
+                    <p>woops! something went wrong :/</p>
+                </div>
+            </>
+        )
     }
+
 };
 
 export default MovieDisplay;
