@@ -10,7 +10,9 @@ interface MovieDisplayProps {
 
 const MovieDisplay = (props: MovieDisplayProps) => {
     const [movieDetails, setMovieDetails] = useState<Movie>(props.movieRec);
+ 
     const [overviewVisibility, setOverviewVisibility] = useState(false);
+    // console.log("The movie rec is " + props.movieRec)
     console.log(`Movie details: ${movieDetails.title}, ${movieDetails.poster}`)
     console.log(`SessionId: ${props.sessionId}`)
 
@@ -24,6 +26,7 @@ const MovieDisplay = (props: MovieDisplayProps) => {
         .catch((error => {
             console.log(`an error occured. details: ${error}`)
         }));
+        console.log(movieDetails)
     };
 
     // Hide or reveal overview of the plot
@@ -32,7 +35,7 @@ const MovieDisplay = (props: MovieDisplayProps) => {
     };
 
 
-    if (movieDetails !== undefined && overviewVisibility === false) {
+    if (movieDetails.id !== undefined && overviewVisibility === false) {
         // Movie rec has been received and the plot description is hidden
         return (
             <div className="movie-display">

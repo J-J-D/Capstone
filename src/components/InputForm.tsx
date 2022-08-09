@@ -4,12 +4,17 @@ import Eras from "./Eras";
 import Runtime from "./Runtime";
 import { UserPrefs } from "../types/interfaces";
 import axios from "axios";
-// import { createModuleResolutionCache, moveEmitHelpers } from "typescript";
-import MovieDisplay from "./MovieDisplay";
-import { Movie } from "../types/interfaces";
 
-interface InputFormProps {userId: number};
+interface InputFormProps {userId: number, setMovieRec: React.Dispatch<React.SetStateAction<{
+    id: number;
+    overview: string;
+    poster: string;
+    release_date: string;
+    title: string}
+    >>,
+    setSessionId: React.Dispatch<React.SetStateAction<number>>
 
+}
 const InputForm = (props: InputFormProps) => {
 
     const [page, setPage] = useState(0);
@@ -22,58 +27,39 @@ const InputForm = (props: InputFormProps) => {
 
     const InputTitles = ["Genres", "Era", "Runtime"];
 
-    // const [movieRec, setMovieRec] = useState<Movie>({
-    //     "id": 0,
-    //     "overview": "",
-    //     "poster": "",
-    //     "release_date": "",
-    //     "title": ""
-    // });
 
-    // const [sessionId, setSessionId] = useState(0);
-
-    const pageDisplay = (sessionId? : number) => {
+    const pageDisplay = () => {
         if (page === 0){
             return <Genres userPrefs={userPrefs} setUserPrefs={setUserPrefs}/>
         }else if(page === 1){
             return <Eras userPrefs={userPrefs} setUserPrefs={setUserPrefs}/>
         }else if(page === 2){
             return <Runtime userPrefs={userPrefs} setUserPrefs={setUserPrefs}/>}
-        // }else if(page === 3){
-        //     return <MovieDisplay sessionId={sessionId} movieRec={movieRec}/>
-        // }
 
     };
 
-    // const returnMovie = (sessionId: number, movieRec: Movie) => {
-    //     return <MovieDisplay sessionId={sessionId} movieRec={movieRec}/>
-    // }
+
 
     const getSession = (sessionId: number) => {
-        let movieRec: Movie = {
-                "id": 0,
-                "overview": "",
-                "poster": "",
-                "release_date": "",
-                "title": ""
-            }
         axios
         .get(`https://matinee-all-day.herokuapp.com/sessions/${sessionId}`)
         .then((response) => {
-            movieRec = response.data;
-            console.log(movieRec);
-            // setMovieRec(response.data);
-            setPage(3);
+            console.log("You got a movie!")
+            console.log(response)
+            props.setMovieRec(response.data)
+
         })
         .catch((err) => {console.log(err)}) 
-        return <MovieDisplay sessionId={sessionId} movieRec={movieRec}/>;
     }
 
     const putSession = (sessionId: number) => {
         axios
         .put(`https://matinee-all-day.herokuapp.com/sessions/${sessionId}`)
-        .then((reponse) => {console.log(reponse)
-        getSession(sessionId)})
+        .then((response) => {
+            console.log(response)
+        getSession(sessionId)
+        })
+
         .catch((err) => {console.log(err)}) 
     }
 
@@ -83,7 +69,7 @@ const InputForm = (props: InputFormProps) => {
         .post('https://matinee-all-day.herokuapp.com/sessions', postPrefs)
         .then((response) => {console.log(response);
             let sessionId = response.data.session_id;
-        // setSessionId(response.data.session_id);
+            props.setSessionId(response.data.session_id)
         putSession(sessionId);
     })
         .catch((err) => {console.log(err)})

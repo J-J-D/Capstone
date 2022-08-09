@@ -14,6 +14,24 @@ function App() {
   const [login, setLogin] = useState({id: 48, message: 
   "You are now logged in.", username: ""});
 
+  const [movieRec, setMovieRec] = useState({
+    "id": 0,
+  "overview": "",
+  "poster": "",
+  "release_date": "",
+  "title": ""
+});
+
+const [sessionId, setSessionId] = useState(0)
+
+  const displayToggle = () => { 
+    if (movieRec.id === 0) {
+      return <InputForm userId={login.id} setMovieRec = {setMovieRec} setSessionId={setSessionId}/>
+    } else{ 
+      return <MovieDisplay sessionId = {sessionId} movieRec = {movieRec}/>
+    } 
+  };
+
 
 
   const loginUser =  (username: string) => {
@@ -26,30 +44,21 @@ function App() {
       .catch((error) => {
         console.log(error);
       })
-      }
+      };
   
 
   
     return (
-      <div className="container" id="page-container">
-        <div className="container" id="login-container">
-          <div className="row">
-            <div className="col">
-              <UserLoginForm handleSubmission={loginUser} userId ={login.id}/>
-            </div>
-          </div>
-        </div>
-        <section className="container" id="display-container">
-          <div className="row">
-            <div className="col">
-              <InputForm userId={login.id}/>
-            </div>
-          </div>
-        </section>
+      <div className="App">
+        <header className="App-header">
+          <UserLoginForm handleSubmission={loginUser} userId ={login.id}/>
+            </header>
+          <section className ="Body">
+            {displayToggle()}
+          </section>
       </div>
       
   );
 }
 
 export default App;
-
