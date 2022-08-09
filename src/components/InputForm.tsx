@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./InputForm.css"
 import Genres from "./Genres";
 import Eras from "./Eras";
 import Runtime from "./Runtime";
@@ -88,7 +89,7 @@ const InputForm = (props: InputFormProps) => {
                 }}>Prev</button>
                 <button onClick={() => { 
                     if (page === InputTitles.length -1) 
-                        {console.log('Posting session');
+                        {
                         postSession(userPrefs);
                     } else {
                         setPage((curPage) => curPage + 1)

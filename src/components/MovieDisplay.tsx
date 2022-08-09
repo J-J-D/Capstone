@@ -5,12 +5,20 @@ import { useState, useEffect} from "react";
 
 interface MovieDisplayProps {
     sessionId: number,
-    movieRec: Movie
+    movieRec: Movie,
+    setMovieRec: React.Dispatch<React.SetStateAction<{
+        id: number;
+        overview: string;
+        poster: string;
+        release_date: string;
+        title: string}
+        >>,
 };
 
 const MovieDisplay = (props: MovieDisplayProps) => {
-    const [movieDetails, setMovieDetails] = useState<Movie>(props.movieRec);
- 
+    // const [movieDetails, setMovieDetails] = useState<Movie>(props.movieRec);
+    const movieDetails = props.movieRec
+    console.log("This is the movieDeatils in Movie Display " + movieDetails)
     const [overviewVisibility, setOverviewVisibility] = useState(false);
     // console.log("The movie rec is " + props.movieRec)
     console.log(`Movie details: ${movieDetails.title}, ${movieDetails.poster}`)
@@ -21,7 +29,7 @@ const MovieDisplay = (props: MovieDisplayProps) => {
         axios
         .get<Movie>(`https://matinee-all-day.herokuapp.com/sessions/${props.sessionId}`)
         .then((response: AxiosResponse) => {
-            setMovieDetails(response.data)
+            props.setMovieRec(response.data)
         })
         .catch((error => {
             console.log(`an error occured. details: ${error}`)
@@ -33,6 +41,12 @@ const MovieDisplay = (props: MovieDisplayProps) => {
     const toggleOverviewVisibility = () => {
         setOverviewVisibility(!overviewVisibility)
     };
+
+    const backToInput = () =>
+    props.setMovieRec({id: 0, overview: "",
+        poster: "",
+        release_date: "",
+        title: ""})
 
 
     if (movieDetails.id !== undefined && overviewVisibility === false) {
@@ -59,6 +73,9 @@ const MovieDisplay = (props: MovieDisplayProps) => {
                 onClick={getMovieData}
                 >
                     show me a different movie!
+                </button>
+                <button onClick = {backToInput}>
+                    Start Your Search Over
                 </button>
             </div>
         );

@@ -24,6 +24,7 @@ const UserLoginForm = (props: Login) => {
         e.preventDefault();
         props.handleSubmission(username);
         setLoggedInMessage(username + " is logged in" )
+        setUsername("")
     }
     
 
