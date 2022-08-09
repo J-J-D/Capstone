@@ -76,7 +76,7 @@ const InputForm = (props: InputFormProps) => {
 };
 
     return (
-        <div className="InputForm align-items-center">
+        <div className="InputForm align-items-center container">
             User Preferences
             <div className="InputTitle InputForm">
                 <h1 className="InputTitle InputForm">{InputTitles[page]}</h1>

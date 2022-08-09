@@ -38,15 +38,15 @@ const MovieDisplay = (props: MovieDisplayProps) => {
     if (movieDetails.id !== undefined && overviewVisibility === false) {
         // Movie rec has been received and the plot description is hidden
         return (
-            <div className="movie-display">
-                <h1 className="movie-title">
+            <div className="movie-display align-items-center container">
+                <h1 className="movie-title movie-display">
                     {movieDetails?.title}
                 </h1>
                 <img
                 src={`https://image.tmdb.org/t/p/w185${movieDetails.poster}`}
                 alt={`Movie poster for ${movieDetails.title} retrieved from The Movie Database`}
                 ></img>
-                <p>
+                <p className="movie-display">
                     {movieDetails?.release_date.slice(0, 4)}
                 </p>
                 <button
@@ -65,18 +65,18 @@ const MovieDisplay = (props: MovieDisplayProps) => {
     } else if (movieDetails !== undefined && overviewVisibility === true) {
         // Movie rec has been received and the plot description is visible
         return (
-            <div className="movie-display">
-                <h1 className="movie-title">
+            <div className="movie-display align-items-center container">
+                <h1 className="movie-title movie-display">
                     {movieDetails?.title}
                 </h1>
-                <p>
+                <p className="movie-display">
                     {movieDetails?.release_date.slice(0, 4)}
                 </p>
                 <img
                 src={`https://image.tmdb.org/t/p/w185${movieDetails.poster}`}
                 alt={`Movie poster for ${movieDetails.title} retrieved from The Movie Database`}
                 ></img>
-                <p>
+                <p className="movie-display">
                     {movieDetails.overview}
                 </p>
                 <button

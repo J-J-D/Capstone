@@ -49,7 +49,7 @@ const [sessionId, setSessionId] = useState(0)
 
   
     return (
-      <div className="App">
+      <div className="App container-fluid">
         <nav className="navbar">
           <div className="container-fluid">
             <div className="spacer">
@@ -63,7 +63,7 @@ const [sessionId, setSessionId] = useState(0)
             </div>
           </div>
         </nav>
-        <section className ="Body d-flex justify-content-center">
+        <section className="h80">
           {displayToggle()}
         </section>
         <nav className="footer navbar fixed-bottom">
