@@ -15,15 +15,15 @@ const TMDB_DECADES = ["1970s", "1980s", "1990s", "2000s", "2010s", "2020 Onward"
 
     return (
         <div className="eras-container">
-            <h3 className="eras-container">Which decade? Click Next to skip and not specify</h3>
-            <ul className="eras-container">
+            <h3 className="eras-details">Which decade? Click Next to skip and not specify</h3>
+            <ul className="eras-details">
             {TMDB_DECADES.map(decade => {
                     return (
                         <button className = "eraButton" key={decade} onClick = {handleClick} value = {decade}>{decade}</button>
                     )
                 })}
             </ul>
-            <h4 className="eras-container">Decade Selected {userPrefs.era}</h4>
+            <h4 className="eras-details">Decade Selected {userPrefs.era}</h4>
         </div>
     )
 }

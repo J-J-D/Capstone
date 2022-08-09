@@ -24,17 +24,15 @@ const Genres = (props: GenresProps) => {
 
     return (
         <div className="genre-container">
-            <div className = "GenreButtons genre-container">
-                <h3 className="genre-container">Choose any genre or subgenres.  Click Next to skip</h3>
-                <ul className="genre-container">
-                    {TMDB_GENRES.map(genre => {
-                        return (
-                            <button className="genreButtons" key={genre} onClick = {e => handleClick(e, "value")} value = {genre}>{genre}</button>
-                        )
-                    })} 
-                </ul>
-                <h4 className="genre-container">Genres Selected {userPrefs.genre}</h4>
-            </div>
+            <h3 className="genre-details">Choose any genre or subgenres.  Click Next to skip</h3>
+            <ul className="genre-details">
+                {TMDB_GENRES.map(genre => {
+                    return (
+                        <button className="genreButtons" key={genre} onClick = {e => handleClick(e, "value")} value = {genre}>{genre}</button>
+                    )
+                })} 
+            </ul>
+            <h4 className="genre-container">Genres Selected {userPrefs.genre}</h4>
         </div>
     )
     }

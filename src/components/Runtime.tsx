@@ -14,8 +14,8 @@ const Runtime = (props: RuntimeProps) => {
 
     return (
         <div className="runtime-container">
-            <h3 className="runtime-container">Approximate maximum movie length?</h3>
-            <ul className="runtime-container">
+            <h3 className="runtime-details">Approximate maximum movie length?</h3>
+            <ul className="runtime-details">
             {TMDB_MAX_TIMES.map(time => {
                     return (
                     <button className = "runtimeButton" key={time} onClick = {handleClick} value = {time}>{time}</button>
