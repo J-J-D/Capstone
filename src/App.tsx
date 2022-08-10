@@ -51,15 +51,14 @@ const [sessionId, setSessionId] = useState(0)
     return (
       <div className="App container-fluid">
         <nav className="navbar">
-          <div className="container-fluid nav-container">
-            <div className="project-title">
+            <div className="project-title ">
               <h1>Matinee All Day</h1>
             </div>
             <div className="login-form">
               <UserLoginForm handleSubmission={loginUser} userId ={login.id}/>
             </div>
-          </div>
         </nav>
+
         <section>
           {displayToggle()}
         </section>

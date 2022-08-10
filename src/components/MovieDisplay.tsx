@@ -52,10 +52,10 @@ const MovieDisplay = (props: MovieDisplayProps) => {
         // Movie rec has been received and the plot description is hidden
         return (
             <div className="movie-display align-items-center container">
-                <h1 className="movie-details">
+                <h1 className="pink-background">
                     {movieDetails?.title}
                 </h1>
-                <p className="movie-details">
+                <p className="pink-background">
                     {movieDetails?.release_date.slice(0, 4)}
                 </p>
                 <img
@@ -83,17 +83,17 @@ const MovieDisplay = (props: MovieDisplayProps) => {
         // Movie rec has been received and the plot description is visible
         return (
             <div className="movie-display align-items-center container">
-                <h1 className="movie-details">
+                <h1 className="pink-background">
                     {movieDetails?.title}
                 </h1>
-                <p className="movie-details">
+                <p className="pink-background">
                     {movieDetails?.release_date.slice(0, 4)}
                 </p>
                 <img
                 src={`https://image.tmdb.org/t/p/w185${movieDetails.poster}`}
                 alt={`Movie poster for ${movieDetails.title} retrieved from The Movie Database`}
                 ></img>
-                <p className="movie-details">
+                <p className="pink-background">
                     {movieDetails.overview}
                 </p>
                 <button

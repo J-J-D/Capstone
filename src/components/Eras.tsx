@@ -14,9 +14,9 @@ const Eras = (props: ErasProps) => {
 const TMDB_DECADES = ["1970s", "1980s", "1990s", "2000s", "2010s", "2020 Onward"]
 
     return (
-        <div className="eras-container">
-            <h3 className="eras-details">Which decade? Click Next to skip and not specify</h3>
-            <ul className="eras-details">
+        <div className="pink-background">
+            <h3 className="pink-background">Which decade? Click Next to skip and not specify</h3>
+            <ul className="pink-background">
             {TMDB_DECADES.map(decade => {
                 let erasButtonId: string = `${decade}-button`
                     return (
@@ -27,7 +27,7 @@ const TMDB_DECADES = ["1970s", "1980s", "1990s", "2000s", "2010s", "2020 Onward"
                     )
                 })}
             </ul>
-            <h4 className="eras-details">Decade Selected {userPrefs.era}</h4>
+            <h4 className="pink-background">Decade Selected {userPrefs.era}</h4>
         </div>
     )
 }

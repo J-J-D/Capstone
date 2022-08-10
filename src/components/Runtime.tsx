@@ -13,9 +13,9 @@ const Runtime = (props: RuntimeProps) => {
     const TMDB_MAX_TIMES = ["90 minutes", "2 hours"]
 
     return (
-        <div className="runtime-container">
-            <h3 className="runtime-details">Approximate maximum movie length?</h3>
-            <ul className="runtime-details">
+        <div className="pink-background">
+            <h3 className="pink-background">Approximate maximum movie length?</h3>
+            <ul className="pink-background">
             {TMDB_MAX_TIMES.map(time => {
                 let runtimeButtonId: string 
                 if ('90 minutes' === time) {

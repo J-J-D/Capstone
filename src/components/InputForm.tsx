@@ -78,15 +78,15 @@ const InputForm = (props: InputFormProps) => {
 
     return (
         <div className="InputForm align-items-center container">
-            <div className="InputTitle InputForm">
-                <h1 className="InputTitle InputForm">{InputTitles[page]}</h1>
+            <div className="InputTitle pink-background">
+                <h1 className="InputTitle pink-background">{InputTitles[page]}</h1>
             </div>
-            <div className="Preferences InputForm">{pageDisplay()}</div>
-            <div className="FormNav InputForm">
-                <button disabled = {page === 0} onClick={() => {
+            <div className="Preferences pink-background">{pageDisplay()}</div>
+            <div className="FormNav pink-background">
+                <button className="cute-button" disabled={page === 0} onClick={() => {
                     setPage((curPage) => curPage - 1)
                 }}>Prev</button>
-                <button onClick={() => { 
+                <button className="cute-button" onClick={() => { 
                     if (page === InputTitles.length -1) 
                         {
                         postSession(userPrefs);
@@ -100,3 +100,4 @@ const InputForm = (props: InputFormProps) => {
 }
 
 export default InputForm
+

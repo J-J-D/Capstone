@@ -1,12 +1,16 @@
 $matinee-pink: #e4b8e2
 $matinee-cream: #fff3d9
-$matinee-blue: #90bed3
+$matinee-blue: #B3CAFB
 
 *
     background-color: $matinee-cream
+    font-family: "Inter",sans-serif
 
-.nav-container
-    padding-bottom: 3%
+.navbar
+    padding-bottom: 6%
+
+.project-title
+    font-family: "Cousine", sans-serif
 
 .InputForm
     background-color: $matinee-pink
@@ -18,6 +22,7 @@ $matinee-blue: #90bed3
     text-align: center
     padding-top: 3%
     padding-bottom: 3%
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px
 
 .movie-display
     background-color: $matinee-pink
@@ -25,23 +30,9 @@ $matinee-blue: #90bed3
     flex-direction: column
     padding-top: 3%
     padding-bottom: 3%
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px
 
-.genre-container
-    background-color: $matinee-pink
-
-.genre-details
-    background-color: $matinee-pink
-
-.eras-container
-    background-color: $matinee-pink
-
-.eras-details
-    background-color: $matinee-pink
-
-.runtime-container
-    background-color: $matinee-pink
-
-.runtime-details
+.pink-background
     background-color: $matinee-pink
 
 .movie-details
@@ -51,13 +42,67 @@ $matinee-blue: #90bed3
     --bs-btn-color: black
     --bs-btn-bg: #fff3d9
     --bs-btn-border-color: $matinee-cream
-    --bs-btn-hover-bg: #90bed3
+    --bs-btn-hover-bg: #ded2b8
     --bs-btn-hover-color: black
-    --bs-btn-hover-border-color: #90bed3
+    --bs-btn-hover-border-color: #ded2b8
     --bs-btn-active-color: black
-    --bs-btn-active-bg: #90bed3
-    --bs-btn-active-border-color: #90bed3
+    --bs-btn-active-bg: #ded2b8
+    --bs-btn-active-border-color: ##ded2b8
     --bs-btn-focus-shadow-rgb: 144,190,21
     margin: .5%
-    --bs-btn-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15),0 1px 1px rgba(0, 0, 0, 0.075)
-    --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(#fcfcfc)
+    --bs-btn-box-shadow: inset 0 0.5px 0 rgba(180, 170, 148, 0.794),0 1px 1px rgba(180, 170, 148, 0.075)
+    --bs-btn-focus-box-shadow: 0 0 0 0.1rem rgba(180, 170, 148)
+    border-radius: 30px
+    border: 2px solid
+    font-family: "Cousine", sans-serif
+
+.cute-button
+    align-items: center
+    background-color: fff3d9
+    border: 2px solid #111
+    border-radius: 8px
+    box-sizing: border-box
+    color: #111
+    cursor: pointer
+    display: inline-block
+    font-family: "Cousine", sans-serif
+    font-size: 16px
+    height: 40px
+    line-height: 24px
+    max-width: 100%
+    padding: 0 25px
+    margin: .5%
+    position: relative
+    text-align: center
+    text-decoration: none
+    user-select: none
+    -webkit-user-select: none
+    touch-action: manipulation
+
+    &:after
+        background-color: #111
+        border-radius: 8px
+        content: ""
+        display: block
+        height: 48px
+        left: 0
+        width: 100%
+        position: absolute
+        top: -2px
+        transform: translate(8px, 8px)
+        transition: transform .2s ease-out
+        z-index: -1
+
+    &:hover:after
+        transform: translate(0, 0)
+
+    &:active
+        background-color: #ffdeda
+        outline: 0
+
+    &:hover
+        outline: 0
+
+@media (min-width: 768px)
+.cute-button
+    padding: 0 40px
