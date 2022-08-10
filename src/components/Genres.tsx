@@ -27,8 +27,13 @@ const Genres = (props: GenresProps) => {
             <h3 className="genre-details">Choose any genre or subgenres.  Click Next to skip</h3>
             <ul className="genre-details">
                 {TMDB_GENRES.map(genre => {
+                    let genreButtonId: string = `${genre}-button`
                     return (
-                        <button className="genreButtons" key={genre} onClick = {e => handleClick(e, "value")} value = {genre}>{genre}</button>
+                        <>
+                        <input type="checkbox" className="preferance-buttons btn-check" key={genre} id={genreButtonId} autoComplete="off" onClick ={e => handleClick(e, "value")} value={genre}></input>
+                        <label className="preferance-buttons btn btn-primary" htmlFor={genreButtonId}>{genre}</label>
+                        </>
+
                     )
                 })} 
             </ul>
