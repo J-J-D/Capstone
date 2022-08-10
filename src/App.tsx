@@ -54,8 +54,8 @@ const [sessionId, setSessionId] = useState(0)
             <div className="login-form">
               <UserLoginForm handleSubmission={loginUser} userId ={login.id}/>
             </div>
-            <div className="project-title">
-              <h1>Matinee All Day</h1>
+            <div>
+              <h1 className="project-title">Matinee All Day</h1>
             </div>
         </nav>
 
