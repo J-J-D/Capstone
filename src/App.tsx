@@ -50,23 +50,21 @@ const [sessionId, setSessionId] = useState(0)
   
     return (
       <div className="App container-fluid">
-        <nav className="navbar">
-            <div className="project-title ">
-              <h1>Matinee All Day</h1>
-            </div>
+        <nav className="navbar justify-content-center flex-column">
             <div className="login-form">
               <UserLoginForm handleSubmission={loginUser} userId ={login.id}/>
+            </div>
+            <div className="project-title">
+              <h1>Matinee All Day</h1>
             </div>
         </nav>
 
         <section>
           {displayToggle()}
         </section>
-        <nav className="footer navbar fixed-bottom">
-          <div className="container-fluid">
-            <p>Jodi Denney & Amel Ntamark | 2022</p>
-          </div>
-        </nav>
+        <div className="footer">
+          <p>Jodi Denney & Amel Ntamark | 2022</p>
+        </div>
       </div>
       
   );

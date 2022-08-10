@@ -32,13 +32,16 @@ const UserLoginForm = (props: Login) => {
         <section className="login">
             <form className="loginForm"
             onSubmit={loginUser}>
+                <div className="container justify-content-center">
                 <p>Please enter your username:</p>
                 <input
                 type="text"
                 name = "Username"
                 value = {username}
                 onChange = {changeName}
+                className="login-box"
                 ></input>
+                </div>
             </form>
             <p>
                 {loggedInMessage}

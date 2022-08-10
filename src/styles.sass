@@ -7,7 +7,11 @@ $matinee-blue: #B3CAFB
     font-family: "Inter",sans-serif
 
 .navbar
-    padding-bottom: 6%
+    padding-bottom: 4%
+    padding-top: 2%
+
+.login-box
+    width: 100%
 
 .project-title
     font-family: "Cousine", sans-serif
@@ -28,7 +32,7 @@ $matinee-blue: #B3CAFB
     background-color: $matinee-pink
     display: flex
     flex-direction: column
-    padding-top: 3%
+    padding-top: 1%
     padding-bottom: 3%
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px
 
@@ -56,53 +60,15 @@ $matinee-blue: #B3CAFB
     border: 2px solid
     font-family: "Cousine", sans-serif
 
-.cute-button
-    align-items: center
-    background-color: fff3d9
-    border: 2px solid #111
-    border-radius: 8px
-    box-sizing: border-box
-    color: #111
-    cursor: pointer
-    display: inline-block
-    font-family: "Cousine", sans-serif
-    font-size: 16px
-    height: 40px
-    line-height: 24px
-    max-width: 100%
-    padding: 0 25px
-    margin: .5%
-    position: relative
+.page-turn-buttons
+    padding-left: 15px
+    padding-right: 15px
+    padding-top: 9px
+    padding-bottom: 7px
+
+.footer
+    position: fixed
+    left: 0
+    bottom: 0
+    width: 100%
     text-align: center
-    text-decoration: none
-    user-select: none
-    -webkit-user-select: none
-    touch-action: manipulation
-
-    &:after
-        background-color: #111
-        border-radius: 8px
-        content: ""
-        display: block
-        height: 48px
-        left: 0
-        width: 100%
-        position: absolute
-        top: -2px
-        transform: translate(8px, 8px)
-        transition: transform .2s ease-out
-        z-index: -1
-
-    &:hover:after
-        transform: translate(0, 0)
-
-    &:active
-        background-color: #ffdeda
-        outline: 0
-
-    &:hover
-        outline: 0
-
-@media (min-width: 768px)
-.cute-button
-    padding: 0 40px

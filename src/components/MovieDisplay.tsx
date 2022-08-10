@@ -64,18 +64,22 @@ const MovieDisplay = (props: MovieDisplayProps) => {
                 ></img>
                 <br></br>
                 <button
+                className="preferance-buttons page-turn-buttons"
                 onClick={toggleOverviewVisibility}
                 >
-                    reveal plot description
+                    Reveal plot description
                 </button>
                 <br></br>
                 <button
+                className="preferance-buttons page-turn-buttons"
                 onClick={getMovieData}
                 >
-                    show me a different movie!
+                    Show me a different movie!
                 </button>
-                <button onClick = {backToInput}>
-                    Start Your Search Over
+                <button 
+                className="preferance-buttons page-turn-buttons"
+                onClick = {backToInput}>
+                    Start your search over
                 </button>
             </div>
         );
@@ -97,18 +101,22 @@ const MovieDisplay = (props: MovieDisplayProps) => {
                     {movieDetails.overview}
                 </p>
                 <button
+                className="preferance-buttons page-turn-buttons"
                 onClick={toggleOverviewVisibility}
                 >
-                    hide plot description
+                    Hide plot description
                 </button>
                 <br></br>
                 <button
+                className="preferance-buttons page-turn-buttons"
                 onClick={getMovieData}
                 >
-                    show me a different movie!
+                    Show me a different movie!
                 </button>
-                <button onClick = {backToInput}>
-                    Start Your Search Over
+                <button 
+                className="preferance-buttons page-turn-buttons"
+                onClick = {backToInput}>
+                    Start your search over
                 </button>
             </div>
         );

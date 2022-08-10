@@ -83,10 +83,10 @@ const InputForm = (props: InputFormProps) => {
             </div>
             <div className="Preferences pink-background">{pageDisplay()}</div>
             <div className="FormNav pink-background">
-                <button className="cute-button" disabled={page === 0} onClick={() => {
+                <button className="preferance-buttons page-turn-buttons" disabled={page === 0} onClick={() => {
                     setPage((curPage) => curPage - 1)
                 }}>Prev</button>
-                <button className="cute-button" onClick={() => { 
+                <button className="preferance-buttons page-turn-buttons" onClick={() => { 
                     if (page === InputTitles.length -1) 
                         {
                         postSession(userPrefs);
