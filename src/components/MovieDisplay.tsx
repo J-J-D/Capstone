@@ -97,7 +97,7 @@ const MovieDisplay = (props: MovieDisplayProps) => {
                 src={`https://image.tmdb.org/t/p/w185${movieDetails.poster}`}
                 alt={`Movie poster for ${movieDetails.title} retrieved from The Movie Database`}
                 ></img>
-                <p className="pink-background">
+                <p className="pink-background overview align-items-center">
                     {movieDetails.overview}
                 </p>
                 <button
