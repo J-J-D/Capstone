@@ -28,7 +28,7 @@ const Genres = (props: GenresProps) => {
             <ul className="genre-details">
                 {TMDB_GENRES.map(genre => {
                     return (
-                        <button className="genreButtons" key={genre} onClick = {e => handleClick(e, "value")} value = {genre}>{genre}</button>
+                        <button className="genreButtons" key={genre} onClick ={e => handleClick(e, "value")} value = {genre}>{genre}</button>
                     )
                 })} 
             </ul>

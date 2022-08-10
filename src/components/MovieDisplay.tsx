@@ -22,13 +22,13 @@ const MovieDisplay = (props: MovieDisplayProps) => {
     const [overviewVisibility, setOverviewVisibility] = useState(false);
     // console.log("The movie rec is " + props.movieRec)
     console.log(`Movie details: ${movieDetails.title}, ${movieDetails.poster}`)
-    console.log(`SessionId: ${props.sessionId}`)
 
     // Make call to MAD backend for a random movie recommendation
     const getMovieData = () => {
         axios
         .get<Movie>(`https://matinee-all-day.herokuapp.com/sessions/${props.sessionId}`)
         .then((response: AxiosResponse) => {
+            console.log(`request sent to https://matinee-all-day.herokuapp.com/sessions/${props.sessionId}`)
             props.setMovieRec(response.data)
         })
         .catch((error => {
