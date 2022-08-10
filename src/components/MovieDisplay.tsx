@@ -56,13 +56,14 @@ const MovieDisplay = (props: MovieDisplayProps) => {
                 <h1 className="movie-title">
                     {movieDetails?.title}
                 </h1>
+                <p>
+                    {movieDetails?.release_date.slice(0, 4)}
+                </p>
                 <img
                 src={`https://image.tmdb.org/t/p/w185${movieDetails.poster}`}
                 alt={`Movie poster for ${movieDetails.title} retrieved from The Movie Database`}
                 ></img>
-                <p>
-                    {movieDetails?.release_date.slice(0, 4)}
-                </p>
+                <br></br>
                 <button
                 onClick={toggleOverviewVisibility}
                 >
@@ -110,17 +111,16 @@ const MovieDisplay = (props: MovieDisplayProps) => {
                 <button onClick = {backToInput}>
                     Start Your Search Over
                 </button>
-
             </div>
         );
     } else {
         // If movie details are not defined
         return (
-            <>
+            
                 <div className="Error-Message">
                     <p>woops! something went wrong :/</p>
                 </div>
-            </>
+            
         )
     }
 
