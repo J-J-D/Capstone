@@ -30,8 +30,8 @@ const Genres = (props: GenresProps) => {
                     let genreButtonId: string = `${genre}-button`
                     return (
                         <>
-                        <input type="checkbox" className="genreButtons btn-check" key={genre} id={genreButtonId} autoComplete="off" onClick ={e => handleClick(e, "value")} value={genre}></input>
-                        <label className="btn btn-primary" htmlFor={genreButtonId}>{genre}</label>
+                        <input type="checkbox" className="preferance-buttons btn-check" key={genre} id={genreButtonId} autoComplete="off" onClick ={e => handleClick(e, "value")} value={genre}></input>
+                        <label className="preferance-buttons btn btn-primary" htmlFor={genreButtonId}>{genre}</label>
                         </>
 
                     )

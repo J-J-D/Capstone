@@ -21,8 +21,8 @@ const TMDB_DECADES = ["1970s", "1980s", "1990s", "2000s", "2010s", "2020 Onward"
                 let erasButtonId: string = `${decade}-button`
                     return (
                         <>
-                        <input type="radio" className="eraButtons btn-check" name="btnradio" key={decade} id={erasButtonId} autoComplete="off" onClick={handleClick} value ={decade}></input>
-                        <label className="btn btn-primary" htmlFor={erasButtonId}>{decade}</label>
+                        <input type="radio" className="preferance-buttons eraButtons btn-check" name="btnradio" key={decade} id={erasButtonId} autoComplete="off" onClick={handleClick} value ={decade}></input>
+                        <label className="preferance-buttons btn btn-primary" htmlFor={erasButtonId}>{decade}</label>
                         </>
                     )
                 })}

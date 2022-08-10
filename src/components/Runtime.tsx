@@ -25,8 +25,8 @@ const Runtime = (props: RuntimeProps) => {
                 }
                     return (
                         <>
-                        <input type="radio" className="runtimeButton btn-check" name="btnradio" key={time} id={runtimeButtonId} autoComplete="off" onClick={handleClick} value={time}></input>
-                        <label className="btn btn-primary" htmlFor={runtimeButtonId}>{time}</label>
+                        <input type="radio" className="preferance-buttons btn-check" name="btnradio" key={time} id={runtimeButtonId} autoComplete="off" onClick={handleClick} value={time}></input>
+                        <label className="preferance-buttons btn btn-primary" htmlFor={runtimeButtonId}>{time}</label>
                         </>
                     )
                 })}

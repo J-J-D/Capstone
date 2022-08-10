@@ -28,7 +28,6 @@ const MovieDisplay = (props: MovieDisplayProps) => {
         axios
         .get<Movie>(`https://matinee-all-day.herokuapp.com/sessions/${props.sessionId}`)
         .then((response: AxiosResponse) => {
-            console.log(`request sent to https://matinee-all-day.herokuapp.com/sessions/${props.sessionId}`)
             props.setMovieRec(response.data)
         })
         .catch((error => {
