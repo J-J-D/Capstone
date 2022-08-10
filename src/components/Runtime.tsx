@@ -17,8 +17,17 @@ const Runtime = (props: RuntimeProps) => {
             <h3 className="runtime-details">Approximate maximum movie length?</h3>
             <ul className="runtime-details">
             {TMDB_MAX_TIMES.map(time => {
+                let runtimeButtonId: string 
+                if ('90 minutes' === time) {
+                    runtimeButtonId = '90-mins-button'
+                } else {
+                    runtimeButtonId = '2-hours-button'
+                }
                     return (
-                    <button className = "runtimeButton" key={time} onClick = {handleClick} value = {time}>{time}</button>
+                        <>
+                        <input type="radio" className="runtimeButton btn-check" name="btnradio" key={time} id={runtimeButtonId} autoComplete="off" onClick={handleClick} value={time}></input>
+                        <label className="btn btn-primary" htmlFor={runtimeButtonId}>{time}</label>
+                        </>
                     )
                 })}
             </ul>
