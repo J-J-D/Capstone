@@ -56,7 +56,7 @@ const MovieDisplay = (props: MovieDisplayProps) => {
                 <h1 className="movie-details">
                     {movieDetails?.title}
                 </h1>
-                <p>
+                <p className="movie-details">
                     {movieDetails?.release_date.slice(0, 4)}
                 </p>
                 <img

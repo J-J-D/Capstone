@@ -82,7 +82,7 @@ const InputForm = (props: InputFormProps) => {
                 <h1 className="InputTitle InputForm">{InputTitles[page]}</h1>
             </div>
             <div className="Preferences InputForm">{pageDisplay()}</div>
-            <div className="FormNav">
+            <div className="FormNav InputForm">
                 <button disabled = {page === 0} onClick={() => {
                     setPage((curPage) => curPage - 1)
                 }}>Prev</button>

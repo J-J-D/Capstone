@@ -51,10 +51,7 @@ const [sessionId, setSessionId] = useState(0)
     return (
       <div className="App container-fluid">
         <nav className="navbar">
-          <div className="container-fluid">
-            <div className="spacer">
-              <p> </p>
-            </div>
+          <div className="container-fluid nav-container">
             <div className="project-title">
               <h1>Matinee All Day</h1>
             </div>
