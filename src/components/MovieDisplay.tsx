@@ -107,6 +107,10 @@ const MovieDisplay = (props: MovieDisplayProps) => {
                 >
                     show me a different movie!
                 </button>
+                <button onClick = {backToInput}>
+                    Start Your Search Over
+                </button>
+
             </div>
         );
     } else {
