@@ -1,8 +1,7 @@
 import axios, {AxiosResponse} from "axios";
 import React from "react";
 import { Movie } from "../types/interfaces";
-import { useState, useEffect} from "react";
-import "./MovieDisplay.scss"
+import { useState} from "react";
 
 interface MovieDisplayProps {
     sessionId: number,

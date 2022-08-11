@@ -23,10 +23,10 @@ const Genres = (props: GenresProps) => {
        
 
     return (
-        <div className="pink-background">
-            <h1 className="InputTitle pink-background">What genre are you in the mood for?</h1>
-            <h3 className="pink-background question-explanation">You can select multiple genres, or click Next to get a movie from any genre.</h3>
-            <ul className="pink-background button-list">
+        <div className="transparent-background container">
+            <h2 className="input-title transparent-background">What genre are you in the mood for?</h2>
+            <h4 className="transparent-background question-explanation">You can select multiple genres, or click Next to get a movie from any genre.</h4>
+            <ul className="transparent-background button-list">
                 {TMDB_GENRES.map(genre => {
                     let genreButtonId: string = `${genre}-button`
                     return (
@@ -38,7 +38,7 @@ const Genres = (props: GenresProps) => {
                     )
                 })} 
             </ul>
-            <h4 className="pink-background">Genres Selected {userPrefs.genre}</h4>
+            <h4 className="transparent-background">Genres Selected {userPrefs.genre}</h4>
         </div>
     )
     }

@@ -107,9 +107,9 @@ const InputForm = (props: InputFormProps) => {
     return (
         <div className="InputForm col d-flex justify-content-center">
             <div className="card-group w-75" style={{height: "35rem"}}>
-                <div className="card preferance-cards">{pageDisplay()}
+                <div className="card preferance-cards ">{pageDisplay()}
                 
-                <div className="FormNav pink-background">
+                <div className="FormNav transparent-background">
                     <button className="preferance-buttons page-turn-buttons" disabled={page === 0} onClick={() => {
                         setPage((curPage) => curPage - 1)
                     }}>Prev</button>
