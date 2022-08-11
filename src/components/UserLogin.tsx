@@ -29,7 +29,7 @@ const UserLoginForm = (props: Login) => {
     
 
     return (
-        <section className="login">
+        <section className="login ">
             <form className="loginForm"
             onSubmit={loginUser}>
                 <div className="container justify-content-center">
@@ -41,11 +41,11 @@ const UserLoginForm = (props: Login) => {
                 onChange = {changeName}
                 className="login-box"
                 ></input>
+                <p className="text-center">
+                    {loggedInMessage}
+                </p>
                 </div>
             </form>
-            <p>
-                {loggedInMessage}
-            </p>
         </section>
     )
     };

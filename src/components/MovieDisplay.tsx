@@ -66,7 +66,7 @@ const MovieDisplay = (props: MovieDisplayProps) => {
                 <div className="movie-display align-items-center card w-75">
                     <h1 className="pink-background">{movieDetails?.title} </h1>
                     <p className="pink-background">({movieDetails?.release_date.slice(0, 4)})</p>
-                    <img
+                    <img className="movie-image"
                     src={`https://image.tmdb.org/t/p/w185${movieDetails.poster}`}
                     alt={`Movie poster for ${movieDetails.title} retrieved from The Movie Database`}
                     ></img>
@@ -108,7 +108,7 @@ const MovieDisplay = (props: MovieDisplayProps) => {
                 <div className="movie-display align-items-center card w-75">
                     <h1 className="pink-background">{movieDetails?.title} </h1>
                     <p className="pink-background">({movieDetails?.release_date.slice(0, 4)})</p>
-                    <img
+                    <img className="movie-image"
                     src={`https://image.tmdb.org/t/p/w185${movieDetails.poster}`}
                     alt={`Movie poster for ${movieDetails.title} retrieved from The Movie Database`}
                     ></img>
