@@ -1,7 +1,7 @@
 import axios, {AxiosResponse} from "axios";
 import React from "react";
 import { Movie } from "../types/interfaces";
-import { useState, useEffect} from "react";
+import { useState} from "react";
 
 interface MovieDisplayProps {
     sessionId: number,
@@ -22,7 +22,6 @@ const MovieDisplay = (props: MovieDisplayProps) => {
     const [overviewVisibility, setOverviewVisibility] = useState(false);
     // console.log("The movie rec is " + props.movieRec)
     console.log(`Movie details: ${movieDetails.title}, ${movieDetails.poster}`)
-    console.log(`SessionId: ${props.sessionId}`)
 
     // Make call to MAD backend for a random movie recommendation
     const getMovieData = () => {
@@ -52,65 +51,69 @@ const MovieDisplay = (props: MovieDisplayProps) => {
     if (movieDetails.id !== undefined && overviewVisibility === false) {
         // Movie rec has been received and the plot description is hidden
         return (
-            <div className="movie-display">
-                <h1 className="movie-title">
-                    {movieDetails?.title}
-                </h1>
-                <p>
-                    {movieDetails?.release_date.slice(0, 4)}
-                </p>
-                <img
-                src={`https://image.tmdb.org/t/p/w185${movieDetails.poster}`}
-                alt={`Movie poster for ${movieDetails.title} retrieved from The Movie Database`}
-                ></img>
-                <br></br>
-                <button
-                onClick={toggleOverviewVisibility}
-                >
-                    reveal plot description
-                </button>
-                <br></br>
-                <button
-                onClick={getMovieData}
-                >
-                    show me a different movie!
-                </button>
-                <button onClick = {backToInput}>
-                    Start Your Search Over
-                </button>
+            <div className="col d-flex justify-content-center">
+                <div className="movie-display align-items-center card w-75">
+                    <h1 className="pink-background">{movieDetails?.title} </h1>
+                    <p className="pink-background">({movieDetails?.release_date.slice(0, 4)})</p>
+                    <img
+                    src={`https://image.tmdb.org/t/p/w185${movieDetails.poster}`}
+                    alt={`Movie poster for ${movieDetails.title} retrieved from The Movie Database`}
+                    ></img>
+                    <br></br>
+                    <button
+                    className="preferance-buttons page-turn-buttons"
+                    onClick={toggleOverviewVisibility}
+                    >
+                        Reveal plot description
+                    </button>
+                    <br></br>
+                    <button
+                    className="preferance-buttons page-turn-buttons"
+                    onClick={getMovieData}
+                    >
+                        Show me a different movie!
+                    </button>
+                    <button 
+                    className="preferance-buttons page-turn-buttons"
+                    onClick = {backToInput}>
+                        Start your search over
+                    </button>
+                </div>
             </div>
         );
     } else if (movieDetails !== undefined && overviewVisibility === true) {
         // Movie rec has been received and the plot description is visible
         return (
-            <div className="movie-display">
-                <h1 className="movie-title">
-                    {movieDetails?.title}
-                </h1>
-                <p>
-                    {movieDetails?.release_date.slice(0, 4)}
-                </p>
-                <img
-                src={`https://image.tmdb.org/t/p/w185${movieDetails.poster}`}
-                alt={`Movie poster for ${movieDetails.title} retrieved from The Movie Database`}
-                ></img>
-                <p>
-                    {movieDetails.overview}
-                </p>
-                <button
-                onClick={toggleOverviewVisibility}
-                >
-                    hide plot description
-                </button>
-                <br></br>
-                <button
-                onClick={getMovieData}
-                >
-                    show me a different movie!
-                </button>
-                <button onClick = {backToInput}>
-                    Start Your Search Over
-                </button>
+            <div className="col d-flex justify-content-center">
+                <div className="movie-display align-items-center card w-75">
+                    <h1 className="pink-background">{movieDetails?.title} </h1>
+                    <p className="pink-background">({movieDetails?.release_date.slice(0, 4)})</p>
+                    <img
+                    src={`https://image.tmdb.org/t/p/w185${movieDetails.poster}`}
+                    alt={`Movie poster for ${movieDetails.title} retrieved from The Movie Database`}
+                    ></img>
+                    <p className="pink-background overview align-items-center">
+                        {movieDetails.overview}
+                    </p>
+                    <button
+                    className="preferance-buttons page-turn-buttons"
+                    onClick={toggleOverviewVisibility}
+                    >
+                        Hide plot description
+                    </button>
+                    <br></br>
+                    <button
+                    className="preferance-buttons page-turn-buttons"
+                    onClick={getMovieData}
+                    >
+                        Show me a different movie!
+                    </button>
+                    <button 
+                    className="preferance-buttons page-turn-buttons"
+                    onClick = {backToInput}>
+                        Start your search over
+                    </button>
+                </div>
             </div>
         );
     } else {

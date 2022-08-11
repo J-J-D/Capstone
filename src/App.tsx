@@ -49,17 +49,25 @@ const [sessionId, setSessionId] = useState(0)
 
   
     return (
-      <div className="App">
-        <header className="App-header">
-          <UserLoginForm handleSubmission={loginUser} userId ={login.id}/>
-            </header>
-          <section className ="Body">
-            {displayToggle()}
-          </section>
+      <div className="App container-fluid">
+        <nav className="navbar justify-content-center flex-column">
+            <div className="login-form">
+              <UserLoginForm handleSubmission={loginUser} userId ={login.id}/>
+            </div>
+            <div>
+              <h1 className="project-title text-center">Matinee All Day</h1>
+            </div>
+        </nav>
+
+        <section>
+          {displayToggle()}
+        </section>
+        <div className="footer">
+          <p>Jodi Denney & Amel Ntamark | 2022</p>
+        </div>
       </div>
       
   );
 }
 
 export default App;
-

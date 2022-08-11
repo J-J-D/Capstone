@@ -14,17 +14,21 @@ const Eras = (props: ErasProps) => {
 const TMDB_DECADES = ["1970s", "1980s", "1990s", "2000s", "2010s", "2020 Onward"]
 
     return (
-        <div>
-            <h3>Which decade? Click Next to skip and not specify</h3>
-            <ul>
-
+        <div className="transparent-background">
+            <h2 className="input-title transparent-background">Which decade do you want a movie from?</h2>
+            <h4 className="transparent-background question-explanation">Click Next to get a movie from any decade</h4>
+            <ul className="transparent-background button-list">
             {TMDB_DECADES.map(decade => {
+                let erasButtonId: string = `${decade}-button`
                     return (
-                        <button className = "eraButton" key={decade} onClick = {handleClick} value = {decade}>{decade}</button>
+                        <>
+                        <input type="radio" className="preferance-buttons eraButtons btn-check" name="btnradio" key={decade} id={erasButtonId} autoComplete="off" onClick={handleClick} value ={decade}></input>
+                        <label className="preferance-buttons btn btn-primary" htmlFor={erasButtonId}>{decade}</label>
+                        </>
                     )
                 })}
             </ul>
-            <h4>Decade Selected {userPrefs.era}</h4>
+            <h4 className="transparent-background">Decade Selected {userPrefs.era}</h4>
         </div>
     )
 }
