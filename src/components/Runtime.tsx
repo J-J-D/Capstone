@@ -15,7 +15,7 @@ const Runtime = (props: RuntimeProps) => {
     return (
         <div className="transparent-background">
             <h2 className="input-title transparent-background">What's the max length you want a movie to be?</h2>
-            <h4 className="transparent-background question-explanation">Click Next to get a movie of any length</h4>
+            <h4 className="transparent-background question-explanation">Click Submit to get a movie of any length</h4>
             <ul className="transparent-background button-list">
             {TMDB_MAX_TIMES.map(time => {
                 let runtimeButtonId: string 

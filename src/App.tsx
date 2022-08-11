@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import MovieDisplay from './components/MovieDisplay';
 import UserLoginForm from "./components/UserLogin";
+import About from "./components/About";
 import InputForm from "./components/InputForm";
 import { useState } from 'react';
 import axios from 'axios';
@@ -24,13 +25,17 @@ function App() {
 
 const [sessionId, setSessionId] = useState(0)
 
-  const displayToggle = () => { 
+const [seeAbout, setSeeAbout] = useState(false)
+
+const backToApp = () => setSeeAbout(!seeAbout)
+
+  const displayToggle = () => { if (seeAbout) {return <About backToApp = {backToApp}/>} else {
     if (movieRec.id === 0) {
       return <InputForm userId={login.id} setMovieRec={setMovieRec} setSessionId={setSessionId}/>
     } else{ 
       return <MovieDisplay userId={login.id} sessionId={sessionId} movieRec={movieRec} setMovieRec={setMovieRec}/>
     } 
-  };
+  }};
 
 
 
@@ -46,11 +51,12 @@ const [sessionId, setSessionId] = useState(0)
       })
       };
   
-
+  
   
     return (
       <div className="App container-fluid">
         <nav className="navbar justify-content-center flex-column">
+          <button className="about-button" onClick = {() => {setSeeAbout(!seeAbout)}}> About This App</button>
             <div className="login-form">
               <UserLoginForm handleSubmission={loginUser} userId ={login.id}/>
             </div>
