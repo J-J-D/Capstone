@@ -64,8 +64,8 @@ const MovieDisplay = (props: MovieDisplayProps) => {
         return (
             <div className="col d-flex justify-content-center">
                 <div className="movie-display align-items-center card w-75">
-                    <h1 className="pink-background">{movieDetails?.title} </h1>
-                    <p className="pink-background">({movieDetails?.release_date.slice(0, 4)})</p>
+                    <h1 className="transparent-background">{movieDetails?.title} </h1>
+                    <p className="transparent-background">({movieDetails?.release_date.slice(0, 4)})</p>
                     <img className="movie-image"
                     src={`https://image.tmdb.org/t/p/w185${movieDetails.poster}`}
                     alt={`Movie poster for ${movieDetails.title} retrieved from The Movie Database`}
@@ -106,13 +106,13 @@ const MovieDisplay = (props: MovieDisplayProps) => {
         return (
             <div className="col d-flex justify-content-center">
                 <div className="movie-display align-items-center card w-75">
-                    <h1 className="pink-background">{movieDetails?.title} </h1>
-                    <p className="pink-background">({movieDetails?.release_date.slice(0, 4)})</p>
+                    <h1 className="transparent-background">{movieDetails?.title} </h1>
+                    <p className="transparent-background">({movieDetails?.release_date.slice(0, 4)})</p>
                     <img className="movie-image"
                     src={`https://image.tmdb.org/t/p/w185${movieDetails.poster}`}
                     alt={`Movie poster for ${movieDetails.title} retrieved from The Movie Database`}
                     ></img>
-                    <p className="pink-background overview align-items-center">
+                    <p className="transparent-background overview align-items-center">
                         {movieDetails.overview}
                     </p>
                     <button
