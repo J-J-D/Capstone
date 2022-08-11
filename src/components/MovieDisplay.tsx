@@ -119,11 +119,11 @@ const MovieDisplay = (props: MovieDisplayProps) => {
     } else {
         // If movie details are not defined
         return (
-            <>
+            
                 <div className="Error-Message">
                     <p>woops! something went wrong :/</p>
                 </div>
-            </>
+            
         )
     }
 
