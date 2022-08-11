@@ -5,7 +5,7 @@ import Eras from "./Eras";
 import Runtime from "./Runtime";
 import { UserPrefs } from "../types/interfaces";
 import axios from "axios";
-// import $ from 'jquery';
+import $ from 'jquery';
 
 
 interface InputFormProps {userId: number, setMovieRec: React.Dispatch<React.SetStateAction<{
@@ -22,16 +22,6 @@ interface InputFormProps {userId: number, setMovieRec: React.Dispatch<React.SetS
 const InputForm = (props: InputFormProps) => {
     
     const [page, setPage] = useState(0);
-    
-
-    // let progress: number = 0;
-    // if (page === 1) {
-    //     progress = 33
-    //     $('#progress-bar').attr('aria-valuenow', progress).css('width', progress+'%');
-    // } else if (page === 2) {
-    //     progress = 66
-    //     $('#progress-bar').attr('aria-valuenow', progress).css('width', progress+'%');
-    // };
     
     const [userPrefs, setUserPrefs] = useState({
         "genre" : "",
@@ -89,21 +79,21 @@ const InputForm = (props: InputFormProps) => {
         .catch((err) => {console.log(err)})
     };
 
-    // const getProgress = (): number => {
-    //     if (page === 0) {
-    //         return 0
-    //     }
-    //     else if (page === 1) {
-    //         progress = 33
-    //         $('#progress-bar').attr('aria-valuenow', progress).css('width', progress+'%');
-    //     } else if (page === 2) {
-    //         progress = 66
-    //         $('#progress-bar').attr('aria-valuenow', progress).css('width', progress+'%');
-    //     };
-
-    //     return 100
-    // };
-
+    const getProgress = () => {
+        let progress: number
+        if (page === 0) {
+            return 0
+        }
+        else if (page === 1) {
+            progress = 33
+            $('#progress-bar').attr('aria-valuenow', progress).css('width', progress+'%');
+        } else if (page === 2) {
+            progress = 66
+            $('#progress-bar').attr('aria-valuenow', progress).css('width', progress+'%');
+        };
+    };
+    getProgress()
+    
     return (
         <div className="InputForm col d-flex justify-content-center">
             <div className="card-group w-75" style={{height: "35rem"}}>
