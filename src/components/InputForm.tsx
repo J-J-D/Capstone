@@ -5,6 +5,8 @@ import Eras from "./Eras";
 import Runtime from "./Runtime";
 import { UserPrefs } from "../types/interfaces";
 import axios from "axios";
+// import $ from 'jquery';
+
 
 interface InputFormProps {userId: number, setMovieRec: React.Dispatch<React.SetStateAction<{
     id: number;
@@ -14,12 +16,23 @@ interface InputFormProps {userId: number, setMovieRec: React.Dispatch<React.SetS
     title: string}
     >>,
     setSessionId: React.Dispatch<React.SetStateAction<number>>
-
+    
 }
+
 const InputForm = (props: InputFormProps) => {
-
+    
     const [page, setPage] = useState(0);
+    
 
+    // let progress: number = 0;
+    // if (page === 1) {
+    //     progress = 33
+    //     $('#progress-bar').attr('aria-valuenow', progress).css('width', progress+'%');
+    // } else if (page === 2) {
+    //     progress = 66
+    //     $('#progress-bar').attr('aria-valuenow', progress).css('width', progress+'%');
+    // };
+    
     const [userPrefs, setUserPrefs] = useState({
         "genre" : "",
         "era" : "",
@@ -74,29 +87,49 @@ const InputForm = (props: InputFormProps) => {
         putSession(sessionId);
     })
         .catch((err) => {console.log(err)})
-};
+    };
+
+    // const getProgress = (): number => {
+    //     if (page === 0) {
+    //         return 0
+    //     }
+    //     else if (page === 1) {
+    //         progress = 33
+    //         $('#progress-bar').attr('aria-valuenow', progress).css('width', progress+'%');
+    //     } else if (page === 2) {
+    //         progress = 66
+    //         $('#progress-bar').attr('aria-valuenow', progress).css('width', progress+'%');
+    //     };
+
+    //     return 100
+    // };
 
     return (
-        <div className="InputForm align-items-center container">
-            <div className="InputTitle pink-background">
-                <h1 className="InputTitle pink-background">{InputTitles[page]}</h1>
-            </div>
-            <div className="Preferences pink-background">{pageDisplay()}</div>
-            <div className="FormNav pink-background">
-                <button className="preferance-buttons page-turn-buttons" disabled={page === 0} onClick={() => {
-                    setPage((curPage) => curPage - 1)
-                }}>Prev</button>
-                <button className="preferance-buttons page-turn-buttons" onClick={() => { 
-                    if (page === InputTitles.length -1) 
-                        {
-                        postSession(userPrefs);
-                    } else {
-                        setPage((curPage) => curPage + 1)
-            }}}>{page === InputTitles.length -1 ? "Submit" : "Next"}</button>
+        <div className="InputForm col d-flex justify-content-center">
+            <div className="card-group w-75" style={{height: "35rem"}}>
+                <div className="card preferance-cards">{pageDisplay()}
+                
+                <div className="FormNav pink-background">
+                    <button className="preferance-buttons page-turn-buttons" disabled={page === 0} onClick={() => {
+                        setPage((curPage) => curPage - 1)
+                    }}>Prev</button>
+                    <button className="preferance-buttons page-turn-buttons" onClick={() => { 
+                        if (page === InputTitles.length -1) 
+                            {
+                            postSession(userPrefs);
+                        } else {
+                            setPage((curPage) => curPage + 1)
+                }}}>{page === InputTitles.length -1 ? "Submit" : "Next"}</button>
+                    <div className="progress container align-items-center">
+                        <div className="card-footer">
+                            <div className="progress-bar" id="progress-bar" role="progressbar" aria-label="Basic example" aria-valuenow={0} aria-valuemin={0} aria-valuemax={100}></div>
+                        </div>
+                    </div>
+                </div>
+                </div>
             </div>
         </div>
     )
-
 }
 
 export default InputForm

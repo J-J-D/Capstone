@@ -14,8 +14,9 @@ const Runtime = (props: RuntimeProps) => {
 
     return (
         <div className="pink-background">
-            <h3 className="pink-background">Approximate maximum movie length?</h3>
-            <ul className="pink-background">
+            <h1 className="InputTitle pink-background">What's the max length you want a movie to be?</h1>
+            <h3 className="pink-background question-explanation">Click Next to get a movie of any length</h3>
+            <ul className="pink-background button-list">
             {TMDB_MAX_TIMES.map(time => {
                 let runtimeButtonId: string 
                 if ('90 minutes' === time) {

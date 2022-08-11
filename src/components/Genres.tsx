@@ -24,8 +24,9 @@ const Genres = (props: GenresProps) => {
 
     return (
         <div className="pink-background">
-            <h3 className="pink-background">Choose any genre or subgenres.  Click Next to skip</h3>
-            <ul className="pink-background">
+            <h1 className="InputTitle pink-background">What genre are you in the mood for?</h1>
+            <h3 className="pink-background question-explanation">You can select multiple genres, or click Next to get a movie from any genre.</h3>
+            <ul className="pink-background button-list">
                 {TMDB_GENRES.map(genre => {
                     let genreButtonId: string = `${genre}-button`
                     return (

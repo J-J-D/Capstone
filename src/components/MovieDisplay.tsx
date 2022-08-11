@@ -51,7 +51,8 @@ const MovieDisplay = (props: MovieDisplayProps) => {
     if (movieDetails.id !== undefined && overviewVisibility === false) {
         // Movie rec has been received and the plot description is hidden
         return (
-            <div className="movie-display align-items-center container">
+            <div className="col d-flex justify-content-center">
+            <div className="movie-display align-items-center card w-75">
                 <h1 className="pink-background">
                     {movieDetails?.title}
                 </h1>
@@ -82,11 +83,13 @@ const MovieDisplay = (props: MovieDisplayProps) => {
                     Start your search over
                 </button>
             </div>
+            </div>
         );
     } else if (movieDetails !== undefined && overviewVisibility === true) {
         // Movie rec has been received and the plot description is visible
         return (
-            <div className="movie-display align-items-center container">
+            <div className="col d-flex justify-content-center">
+            <div className="movie-display align-items-center card w-75">
                 <h1 className="pink-background">
                     {movieDetails?.title}
                 </h1>
@@ -118,6 +121,7 @@ const MovieDisplay = (props: MovieDisplayProps) => {
                 onClick = {backToInput}>
                     Start your search over
                 </button>
+            </div>
             </div>
         );
     } else {
