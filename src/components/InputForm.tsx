@@ -79,20 +79,20 @@ const InputForm = (props: InputFormProps) => {
         .catch((err) => {console.log(err)})
     };
 
-    const getProgress = () => {
-        let progress: number
-        if (page === 0) {
-            return 0
-        }
-        else if (page === 1) {
-            progress = 33
-            $('#progress-bar').attr('aria-valuenow', progress).css('width', progress+'%');
-        } else if (page === 2) {
-            progress = 66
-            $('#progress-bar').attr('aria-valuenow', progress).css('width', progress+'%');
-        };
-    };
-    getProgress()
+    // const getProgress = () => {
+    //     let progress: number
+    //     if (page === 0) {
+    //         return 0
+    //     }
+    //     else if (page === 1) {
+    //         progress = 33
+    //         $('#progress-bar').attr('aria-valuenow', progress).css('width', progress+'%');
+    //     } else if (page === 2) {
+    //         progress = 66
+    //         $('#progress-bar').attr('aria-valuenow', progress).css('width', progress+'%');
+    //     };
+    // };
+    // getProgress()
     
     return (
         <div className="InputForm col d-flex justify-content-center">

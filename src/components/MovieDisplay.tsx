@@ -5,6 +5,7 @@ import { useState} from "react";
 
 interface MovieDisplayProps {
     sessionId: number,
+    userId: number,
     movieRec: Movie,
     setMovieRec: React.Dispatch<React.SetStateAction<{
         id: number;
@@ -47,6 +48,16 @@ const MovieDisplay = (props: MovieDisplayProps) => {
         release_date: "",
         title: ""})
 
+    const addToSeenList = () => {
+        axios
+        .patch(`https://matinee-all-day.herokuapp.com/users/${props.userId}/${movieDetails.id}`)
+        .then((response) => {
+            console.log(`${movieDetails.title} added to user ${props.userId}'s seen list.`)
+        getMovieData()
+        })
+        .catch((err) => {console.log(err)}) 
+    }
+
 
     if (movieDetails.id !== undefined && overviewVisibility === false) {
         // Movie rec has been received and the plot description is hidden
@@ -77,6 +88,11 @@ const MovieDisplay = (props: MovieDisplayProps) => {
                     className="preferance-buttons page-turn-buttons"
                     onClick = {backToInput}>
                         Start your search over
+                    </button>
+                    <button 
+                    className="preferance-buttons page-turn-buttons"
+                    onClick = {addToSeenList}>
+                        Seen it already!
                     </button>
                 </div>
             </div>

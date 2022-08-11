@@ -26,9 +26,9 @@ const [sessionId, setSessionId] = useState(0)
 
   const displayToggle = () => { 
     if (movieRec.id === 0) {
-      return <InputForm userId={login.id} setMovieRec = {setMovieRec} setSessionId={setSessionId}/>
+      return <InputForm userId={login.id} setMovieRec={setMovieRec} setSessionId={setSessionId}/>
     } else{ 
-      return <MovieDisplay sessionId = {sessionId} movieRec = {movieRec} setMovieRec = {setMovieRec}/>
+      return <MovieDisplay userId={login.id} sessionId={sessionId} movieRec={movieRec} setMovieRec={setMovieRec}/>
     } 
   };
 
