@@ -19,10 +19,10 @@ interface MovieDisplayProps {
 const MovieDisplay = (props: MovieDisplayProps) => {
     // const [movieDetails, setMovieDetails] = useState<Movie>(props.movieRec);
     const movieDetails = props.movieRec
-    console.log("This is the movieDeatils in Movie Display " + movieDetails)
+    
     const [overviewVisibility, setOverviewVisibility] = useState(false);
-    // console.log("The movie rec is " + props.movieRec)
-    console.log(`Movie details: ${movieDetails.title}, ${movieDetails.poster}`)
+
+    console.log(`user id is ${props.userId}`)
 
     // Make call to MAD backend for a random movie recommendation
     const getMovieData = () => {
@@ -91,7 +91,11 @@ const MovieDisplay = (props: MovieDisplayProps) => {
                     </button>
                     <button 
                     className="preferance-buttons page-turn-buttons"
-                    onClick = {addToSeenList}>
+                    onClick={() => {
+                        if (props.userId !== 48) {
+                            addToSeenList();
+                        }
+                    }}>
                         Seen it already!
                     </button>
                 </div>
@@ -128,6 +132,15 @@ const MovieDisplay = (props: MovieDisplayProps) => {
                     className="preferance-buttons page-turn-buttons"
                     onClick = {backToInput}>
                         Start your search over
+                    </button>
+                    <button 
+                    className="preferance-buttons page-turn-buttons"
+                    onClick={() => {
+                        if (props.userId !== 48) {
+                            addToSeenList()
+                        }
+                    }}>
+                        Seen it already!
                     </button>
                 </div>
             </div>
