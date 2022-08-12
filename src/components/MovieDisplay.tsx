@@ -3,6 +3,8 @@ import React from "react";
 import { Movie } from "../types/interfaces";
 import { useState} from "react";
 
+
+
 interface MovieDisplayProps {
     sessionId: number,
     userId: number,
@@ -22,7 +24,6 @@ const MovieDisplay = (props: MovieDisplayProps) => {
     
     const [overviewVisibility, setOverviewVisibility] = useState(false);
 
-    console.log(`user id is ${props.userId}`)
 
     // Make call to MAD backend for a random movie recommendation
     const getMovieData = () => {
@@ -42,11 +43,18 @@ const MovieDisplay = (props: MovieDisplayProps) => {
         setOverviewVisibility(!overviewVisibility)
     };
 
-    const backToInput = () =>
+    const backToInput = () => {
     props.setMovieRec({id: 0, overview: "",
         poster: "",
         release_date: "",
         title: ""})
+
+        axios
+        .delete('https://matinee-all-day.herokuapp.com/sessions/movies')
+        .then((response) => console.log(response))
+        .catch((err) => console.log(err))
+    };
+
 
     const addToSeenList = () => {
         axios
