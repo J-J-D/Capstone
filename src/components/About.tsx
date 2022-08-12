@@ -1,12 +1,9 @@
 import React from "react";
 
-interface AboutProps{backToApp:  () => void}
+// interface AboutProps{backToApp:  () => void}
 
 
-const About = (props: AboutProps) => {
-
-
-
+const About = () => {
 
     return (
         <div>
@@ -17,7 +14,7 @@ const About = (props: AboutProps) => {
         Ada Developers Academy is an intensive full-stack software engineering program covering :<br/>
         Python, JavaScript, React, Git, RESTful APIs, PostgreSQL, HTML, CSS, Test Driven Development, OOP, data structures, algorithms, and design patterns.
             </p>
-        <button onClick={props.backToApp}>Back to App</button>
+        {/* <button onClick={props.backToApp}>Back to App</button> */}
             
         </div>
         
