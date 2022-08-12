@@ -55,14 +55,14 @@ const backToApp = () => setSeeAbout(!seeAbout)
   
     return (
       <div className="App container-fluid">
-        <nav className="navbar justify-content-center flex-column">
-          <button className="about-button" onClick = {() => {setSeeAbout(!seeAbout)}}> About This App</button>
-            <div className="login-form">
+        <nav className="navbar justify-content-space-between">
+          <div className="login-form">
               <UserLoginForm handleSubmission={loginUser} userId ={login.id}/>
             </div>
-            <div>
+          <div>
               <h1 className="project-title text-center">Matinee All Day</h1>
             </div>
+            <button type="button" className="btn about-button" onClick = {() => {setSeeAbout(!seeAbout)}}> About This App</button>
         </nav>
 
         <section>
