@@ -110,7 +110,6 @@ const InputForm = (props: InputFormProps) => {
                         } else {
                             setPage((curPage) => curPage + 1)
                 }}}>{page === InputTitles.length -1 ? "Submit" : "Next"}</button>
-
                     <div className="progress container align-items-center">
                         <div className="card-footer">
                             <div className="progress-bar" id="progress-bar" role="progressbar" aria-label="Basic example" aria-valuenow={0} aria-valuemin={0} aria-valuemax={100}></div>
