@@ -1,4 +1,5 @@
 import React from "react";
+import { collapseTextChangeRangesAcrossMultipleVersions } from "typescript";
 import { UserPrefs } from "../types/interfaces";
 
 
@@ -8,15 +9,19 @@ interface GenresProps {userPrefs: UserPrefs, setUserPrefs: React.Dispatch<React.
 const Genres = (props: GenresProps) => {
     const {userPrefs, setUserPrefs} = props
 
-    const handleClick = (e: React.SyntheticEvent, value: string) => {
-        // Sets genre to button clicked or concatenates if one already there
-        if (userPrefs.genre){
-         //@ts-ignore comment   
-            setUserPrefs({...userPrefs, genre: userPrefs.genre + " " + e.target.value})
-        }else{
-         //@ts-ignore comment   
-            setUserPrefs({...userPrefs, genre: e.target.value})
-        }};
+    const handleClick = async (e: React.SyntheticEvent, value: string) => {
+        const target = e.target as HTMLButtonElement;
+        let selectedGenre = target.value;
+
+        // @ts-ignore comment
+        if (userPrefs.genre.some((genre) => {return genre === selectedGenre})) {
+            const newGenrePrefs = userPrefs.genre.filter(genre => selectedGenre !== genre);
+            setUserPrefs({...userPrefs, genre: newGenrePrefs});
+        } else {
+            userPrefs.genre.push(selectedGenre)
+            setUserPrefs({...userPrefs, genre: userPrefs.genre})
+        }
+    };
 
     const TMDB_GENRES = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Documentary", "Drama", "Family", "Fantasy", "History", "Horror", "Music", "Mystery", "Romance", "SciFi", "Thriller", "War", "Western"]
 
