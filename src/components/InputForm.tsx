@@ -23,7 +23,7 @@ const InputForm = (props: InputFormProps) => {
     const [page, setPage] = useState(0);
     
     const [userPrefs, setUserPrefs] = useState({
-        "genre" : "",
+        "genre" : new Array<string>(),
         "era" : "",
         "runtime":"",
     });
@@ -67,7 +67,9 @@ const InputForm = (props: InputFormProps) => {
     }
 
     const postSession = (userPrefs: UserPrefs) => {
-        const postPrefs = {...userPrefs, user_id:props.userId}
+        let genrePrefs = userPrefs.genre.join(' ')
+        const postPrefs = {...userPrefs, genre:genrePrefs, user_id:props.userId}
+
         axios
         .post('https://matinee-all-day.herokuapp.com/sessions', postPrefs)
         .then((response) => {console.log(response);

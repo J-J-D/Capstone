@@ -7,7 +7,7 @@ export interface Movie {
 }
 
 export interface UserPrefs {
-    genre: string,
+    genre: string[],
     era: string,
     runtime: string,
 }
