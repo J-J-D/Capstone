@@ -1,5 +1,5 @@
 import React from "react";
-import { collapseTextChangeRangesAcrossMultipleVersions } from "typescript";
+// import { collapseTextChangeRangesAcrossMultipleVersions } from "typescript";
 import { UserPrefs } from "../types/interfaces";
 
 
@@ -13,7 +13,7 @@ const Genres = (props: GenresProps) => {
         const target = e.target as HTMLButtonElement;
         let selectedGenre = target.value;
 
-        // @ts-ignore comment
+        // If genre clicked not in preferences, add it. If it is, remove it.
         if (userPrefs.genre.some((genre) => {return genre === selectedGenre})) {
             const newGenrePrefs = userPrefs.genre.filter(genre => selectedGenre !== genre);
             setUserPrefs({...userPrefs, genre: newGenrePrefs});

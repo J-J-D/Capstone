@@ -58,7 +58,7 @@ const backToApp = () => setSeeAbout(!seeAbout)
               <UserLoginForm handleSubmission={loginUser} userId ={login.id}/>
             </div>
           <div>
-              <h1 className="project-title text-center">Matinee All Day</h1>
+              <h1 className="text-center project-title ">Matinee All Day</h1>
             </div>
             <button type="button" className="btn about-button" onClick = {() => {setSeeAbout(!seeAbout)}}> About This App</button>
         </nav>
