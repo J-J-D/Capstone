@@ -114,7 +114,7 @@ const MovieDisplay = (props: MovieDisplayProps) => {
         return (
             <div className="col d-flex justify-content-center">
                 <div className="movie-display align-items-center card w-75">
-                    <h1 className="transparent-background">{movieDetails?.title} </h1>
+                    <h2 className="movie-title transparent-background">{movieDetails?.title} </h2>
                     <p className="transparent-background">({movieDetails?.release_date.slice(0, 4)})</p>
                     <img className="movie-image"
                     src={`https://image.tmdb.org/t/p/w185${movieDetails.poster}`}

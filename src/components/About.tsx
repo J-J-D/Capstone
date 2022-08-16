@@ -10,9 +10,9 @@ const About = (props: AboutProps) => {
 
     return (
         <div className="col d-flex justify-content-center">
-            <div className="card-group w-75" style={{height: "35rem"}}>
+            <div className="about-card" style={{height: "35rem"}}>
                 <div className="card preferance-cards d-flex align-items-center justify-content-center">
-                    <div className="card about-paragraph w-75">
+                    <div className="card about-paragraph">
                         <p className="transparent-background">
                         Matinee All Day is the Capstone Project for <a href="https://github.com/amelntamark" target='_blank' rel="noreferrer">Amel Ntamark</a> and <a href='https://github.com/J-J-D' target='_blank' rel="noreferrer">Jodi Denney</a>, graduates of Ada Devlopers Academy Cohort 17. This project was timeboxed to 3 weeks. The app was deployed through Heroku and uses a React/Typescript frontend to allow users to enter preferences for what type of movie they would like to see. The backend, utilizing a Python/Flask framework, makes a public API call to <a href='https://developers.themoviedb.org/3/getting-started/introduction' target='_blank' rel="noreferrer">TMDB</a>  and obtains up to 200 films that match the user preferences. 
                         <br/>

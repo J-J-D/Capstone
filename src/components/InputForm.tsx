@@ -83,7 +83,7 @@ const InputForm = (props: InputFormProps) => {
     
     return (
         <div className="col d-flex justify-content-center">
-            <div className="card-group" style={{height: "35rem"}}>
+            <div className="card-group w-75" style={{height: "35rem"}}>
                 <div className="card preferance-cards ">{pageDisplay()}
                 
                 <div className="FormNav transparent-background">

@@ -28,7 +28,7 @@ a:hover
 
 .project-title
     font-family: "Bungee Shade"
-    font-size: calc(50px + 0.390625vw)
+    font-size: 3.5rem
 
 .about-button
     --bs-btn-color: #e2aadf
@@ -51,6 +51,7 @@ a:hover
     background-color: $matinee-pink
     display: flex
     flex-direction: column
+    align-content: center
     padding-top: 1%
     padding-bottom: 3%
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px
@@ -107,11 +108,14 @@ a:hover
     text-align: center
 
 .footer
-    left: 0
-    bottom: 0
-    width: 100%
     text-align: center
     max-height: 3.5%
+    position: absolute
+    left: 0
+    bottom: 0
+    height: 100px
+    width: 100%
+    overflow: hidden
 
 .movie-image
     border-radius: 25px
@@ -128,7 +132,10 @@ a:hover
     max-width: 10%
     height: auto
 
-.card-group
+.about-card
+    width: 75%
+
+.about-paragraph
     width: 75%
 
 // Phones
@@ -155,23 +162,51 @@ a:hover
     .card-group
         width: 80%
 
+    .project-title
+        font-size: 2rem
+    .navbar
+        padding-bottom: 1%
+        padding-top: 2%
+        margin-left: 3%
+        margin-right: 3%
+        display: flex
+        flex-direction: column
+    .about-button
+        font-size: .9rem
+    .about-card
+        width: 90%
+        background-color: transparent
+        important: !important
+    .movie-title
+        font-size: 1rem
+    .about-paragraph
+        width: 100%
+        background-color: transparent
+        border: transparent
+        a:link
+            color: #7191d4
+            background: transparent
+        a:visited
+            color: #7191d4
+            background: transparent
+
 // Tablets 
 @media (min-width: 481px) and (max-width: 767px)
     .tmdb-logo
         max-width: 20%
         height: auto
-    .footer
-        position: fixed
+    // .footer
+    //     position: fixed
 
 // Small screens
 @media (min-width: 768px) and (max-width: 1024px)
     .tmdb-logo
         max-width: 20%
         height: auto
-    .footer
-        position: fixed
+    // .footer
+    //     position: fixed
 
 // Large screens
 @media (min-width: 1025px)
-    .footer
-        position: fixed
+    // .footer
+    //     position: fixed
