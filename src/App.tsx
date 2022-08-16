@@ -7,9 +7,6 @@ import InputForm from "./components/InputForm";
 import { useState } from 'react';
 import axios from 'axios';
 
-
-
-
 function App() {
 // login tracks the current user and their id. If no one logged in, the user id is set to Default User (48)
   const [login, setLogin] = useState({id: 48, message: 
@@ -54,6 +51,7 @@ const backToApp = () => setSeeAbout(!seeAbout)
   
   
     return (
+      <>
       <div className="App container-fluid">
         <nav className="navbar justify-content-space-between">
           <div className="login-form">
@@ -68,11 +66,11 @@ const backToApp = () => setSeeAbout(!seeAbout)
         <section>
           {displayToggle()}
         </section>
-        <div className="footer">
-          <p>Jodi Denney & Amel Ntamark | 2022</p>
-        </div>
       </div>
-      
+      <div className="footer">
+        <p>Jodi Denney & Amel Ntamark | 2022</p>
+      </div>
+      </>
   );
 }
 

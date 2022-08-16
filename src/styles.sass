@@ -6,6 +6,17 @@ $matinee-blue: #B3CAFB
     background-color: $matinee-cream
     font-family: "Asap"
 
+a:link
+    color: #d882c3
+    background: transparent
+
+a:visited
+    color: #d882c3
+    background: transparent
+
+a:hover
+    color: #7191d4
+
 .navbar
     padding-bottom: 1%
     padding-top: .5%
@@ -20,24 +31,12 @@ $matinee-blue: #B3CAFB
     font-size: calc(50px + 0.390625vw)
 
 .about-button
-    --bs-btn-color: #e4b8e2
+    --bs-btn-color: #e2aadf
     --bs-btn-hover-color: #B3CAFB
     --bs-btn-font-weight: 500
     --bs-btn-border-color: transparent
     --bs-btn-hover-border-color: transparent
-
-// .InputForm
-//     background-color: $matinee-pink
-//     width: auto
-//     height: 50%
-//     margin-left: auto
-//     margin-right: auto
-//     margin-top: 5%
-//     text-align: center
-//     padding-top: 3%
-//     padding-bottom: 3%
-//     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px
-//     border-radius: 25px
+    font-size: 1.2rem
 
 .preferance-cards
     background-color: $matinee-pink
@@ -56,9 +55,6 @@ $matinee-blue: #B3CAFB
     padding-bottom: 3%
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px
     border-radius: 25px
-
-// .pink-background
-//     background-color: $matinee-pink
 
 .transparent-background
     background-color: transparent
@@ -96,10 +92,12 @@ $matinee-blue: #B3CAFB
 
 .button-list
     margin-bottom: 2%
-    margin-top: 2%
+    margin-top: 3%
+    padding-left: 4%
+    padding-right: 4%
 
 .question-explanation
-    margin-top: .5%
+    margin-top: 2%
     // font-size: calc(16px + 0.390625vw)
 
 .overview
@@ -109,20 +107,71 @@ $matinee-blue: #B3CAFB
     text-align: center
 
 .footer
-    position: fixed
     left: 0
     bottom: 0
     width: 100%
     text-align: center
     max-height: 3.5%
 
-.progress
-    max-width: 60%
-    margin-top: .8%
-    margin-bottom: 2%
-
 .movie-image
     border-radius: 25px
     border-block-color: transparent
     box-shadow: rgba(0, 0, 0, 0.3) 10px 10px 5px, rgba(0, 0, 0, 0.22) 0px 15px 12px
     margin-bottom: 2%
+
+.about-paragraph
+    border-radius: 25px
+    padding: 1.5%
+    margin-bottom: 2%
+
+.tmdb-logo
+    max-width: 10%
+    height: auto
+
+.card-group
+    width: 75%
+
+// Phones
+@media (max-width: 480px)
+    .tmdb-logo
+        max-width: 30%
+        height: auto
+    .footer
+        display: none
+    .question-explanation
+        font-size: 1rem
+        margin: 2%
+    .input-title
+        font-size: 1.5rem
+        margin: 2%
+    .preferance-buttons
+        margin: 1%
+        padding-left: 3%
+        padding-right: 3%
+        padding-top: 2%
+        padding-bottom: 2%
+    .button-list
+        margin: 5%
+    .card-group
+        width: 80%
+
+// Tablets 
+@media (min-width: 481px) and (max-width: 767px)
+    .tmdb-logo
+        max-width: 20%
+        height: auto
+    .footer
+        position: fixed
+
+// Small screens
+@media (min-width: 768px) and (max-width: 1024px)
+    .tmdb-logo
+        max-width: 20%
+        height: auto
+    .footer
+        position: fixed
+
+// Large screens
+@media (min-width: 1025px)
+    .footer
+        position: fixed
