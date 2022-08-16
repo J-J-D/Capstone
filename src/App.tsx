@@ -51,6 +51,7 @@ const backToApp = () => setSeeAbout(!seeAbout)
   
   
     return (
+      <>
       <div className="App container-fluid">
         <nav className="navbar justify-content-space-between">
           <div className="login-form">
@@ -65,11 +66,11 @@ const backToApp = () => setSeeAbout(!seeAbout)
         <section>
           {displayToggle()}
         </section>
-        <div className="footer">
-          <p>Jodi Denney & Amel Ntamark | 2022</p>
-        </div>
       </div>
-      
+      <div className="footer">
+        <p>Jodi Denney & Amel Ntamark | 2022</p>
+      </div>
+      </>
   );
 }
 

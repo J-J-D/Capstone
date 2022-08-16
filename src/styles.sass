@@ -93,6 +93,8 @@ a:hover
 .button-list
     margin-bottom: 2%
     margin-top: 2%
+    padding-left: 4%
+    padding-right: 4%
 
 .question-explanation
     margin-top: .5%
@@ -105,7 +107,6 @@ a:hover
     text-align: center
 
 .footer
-    position: fixed
     left: 0
     bottom: 0
     width: 100%
@@ -127,12 +128,32 @@ a:hover
     max-width: 10%
     height: auto
 
+// Phones
 @media (max-width: 480px)
     .tmdb-logo
         max-width: 30%
         height: auto
+    .footer
+        margin-top: auto
+        // position: -webkit-sticky
 
+// Tablets 
+@media (min-width: 481px) and (max-width: 767px)
+    .tmdb-logo
+        max-width: 20%
+        height: auto
+    .footer
+        position: fixed
+
+// Small screens
 @media (min-width: 768px) and (max-width: 1024px)
     .tmdb-logo
         max-width: 20%
         height: auto
+    .footer
+        position: fixed
+
+// Large screens
+@media (min-width: 1025px)
+    .footer
+        position: fixed
