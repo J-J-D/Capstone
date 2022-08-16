@@ -43,7 +43,6 @@ const Genres = (props: GenresProps) => {
                     )
                 })} 
             </ul>
-            <h4 className="transparent-background">Genres Selected: {userPrefs.genre}</h4>
         </div>
     )
     }

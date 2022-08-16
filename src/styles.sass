@@ -92,12 +92,12 @@ a:hover
 
 .button-list
     margin-bottom: 2%
-    margin-top: 2%
+    margin-top: 3%
     padding-left: 4%
     padding-right: 4%
 
 .question-explanation
-    margin-top: .5%
+    margin-top: 2%
     // font-size: calc(16px + 0.390625vw)
 
 .overview
@@ -128,14 +128,32 @@ a:hover
     max-width: 10%
     height: auto
 
+.card-group
+    width: 75%
+
 // Phones
 @media (max-width: 480px)
     .tmdb-logo
         max-width: 30%
         height: auto
     .footer
-        margin-top: auto
-        // position: -webkit-sticky
+        display: none
+    .question-explanation
+        font-size: 1rem
+        margin: 2%
+    .input-title
+        font-size: 1.5rem
+        margin: 2%
+    .preferance-buttons
+        margin: 1%
+        padding-left: 3%
+        padding-right: 3%
+        padding-top: 2%
+        padding-bottom: 2%
+    .button-list
+        margin: 5%
+    .card-group
+        width: 80%
 
 // Tablets 
 @media (min-width: 481px) and (max-width: 767px)
