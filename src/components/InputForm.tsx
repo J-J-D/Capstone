@@ -5,7 +5,6 @@ import Eras from "./Eras";
 import Runtime from "./Runtime";
 import { UserPrefs } from "../types/interfaces";
 import axios from "axios";
-import $ from 'jquery';
 
 
 interface InputFormProps {userId: number, setMovieRec: React.Dispatch<React.SetStateAction<{
@@ -79,23 +78,9 @@ const InputForm = (props: InputFormProps) => {
         .catch((err) => {console.log(err)})
     };
 
-    // const getProgress = () => {
-    //     let progress: number
-    //     if (page === 0) {
-    //         return 0
-    //     }
-    //     else if (page === 1) {
-    //         progress = 33
-    //         $('#progress-bar').attr('aria-valuenow', progress).css('width', progress+'%');
-    //     } else if (page === 2) {
-    //         progress = 66
-    //         $('#progress-bar').attr('aria-valuenow', progress).css('width', progress+'%');
-    //     };
-    // };
-    // getProgress()
     
     return (
-        <div className="InputForm col d-flex justify-content-center">
+        <div className="col d-flex justify-content-center">
             <div className="card-group w-75" style={{height: "35rem"}}>
                 <div className="card preferance-cards ">{pageDisplay()}
                 
@@ -110,11 +95,6 @@ const InputForm = (props: InputFormProps) => {
                         } else {
                             setPage((curPage) => curPage + 1)
                 }}}>{page === InputTitles.length -1 ? "Submit" : "Next"}</button>
-                    <div className="progress container align-items-center">
-                        <div className="card-footer">
-                            <div className="progress-bar" id="progress-bar" role="progressbar" aria-label="Basic example" aria-valuenow={0} aria-valuemin={0} aria-valuemax={100}></div>
-                        </div>
-                    </div>
                 </div>
                 </div>
             </div>
